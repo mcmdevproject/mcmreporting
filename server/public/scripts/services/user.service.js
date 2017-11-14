@@ -55,9 +55,6 @@ myApp.service('UserService', function ($http, $location) {
   };
 
 
-
-
-
   self.getChartData = function () {
     //on page load, GET all case_data from DB to the DOM
     return $http({

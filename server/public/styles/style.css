@@ -26,9 +26,10 @@ body, html {
   #LawEnforcementAgencyonCase, #FamilyMembersInvolvedInSearch {
     border: 2px solid red;    
   } */
-  .form-group{
-    padding: 18px;
-    margin: 10px;
+  .md-form {
+    padding: 40px;
+    margin: 20px;
+    
   }
   
   .instructions {
