@@ -1,50 +1,58 @@
 myApp.controller('NewController', function (UserService) {
-    console.log('NewController as nwc created');
-    var vm = this;
-    var newIntake = [];
-  
-
-    vm.itemChange = function(){
-      console.log('inside itemchange');
-      console.log(vm.SchoolDistrictWhereChildWasEnrolledIn);
-    }
+  console.log('NewController as nwc created');
+  var vm = this;
+  var newIntake = [];
+  var vulnerabilities = [];
 
 
-    vm.userService = UserService;
-    vm.userObject = UserService.userObject;
+  vm.itemChange = function () {
+    console.log('inside itemchange');
+    console.log(vm.SchoolDistrictWhereChildWasEnrolledIn);
+  }
 
 
-   UserService.getCities().then(function (response){
+  vm.userService = UserService;
+  vm.userObject = UserService.userObject;
+
+
+  UserService.getCities().then(function (response) {
     console.log('cities', response.data);
     return vm.cities = response.data;
   });
 
-  UserService.getCounties().then(function (response){
+  UserService.getCounties().then(function (response) {
     return vm.counties = response.data;
   });
 
-  UserService.getAgencies().then(function (response){
+  UserService.getAgencies().then(function (response) {
     return vm.agencies = response.data;
   });
 
-  UserService.getSchools().then(function (response){
+  UserService.getSchools().then(function (response) {
     console.log('schools', response.data);
-    
+
     return vm.schools = response.data;
   });
 
-  
+
   vm.click = function () {
     console.log('in click');
+
+
+    // var vulnerabilities = {
+    
+    //   case_data_id =   vm.newIntake.id,
+    //   vulnerabilities_id
+    // };
 
     var newIntake = {
       mcm_number: vm.caseIn,
       intake_date: vm.DateofIntaketoMCMIn,
       age: vm.AgeIn,
       gender: vm.GenderIn,
-      last_seen: vm.DateLastSeenIn,      
+      last_seen: vm.DateLastSeenIn,
       reported_missing: vm.DateReportedMissingtoPoliceIn,
-      people_served: vm.FamilyMembersInvolvedInSearchIn,      
+      people_served: vm.FamilyMembersInvolvedInSearchIn,
       city: vm.CityMissingFromIn,
       county: vm.CountyMissingFromIn,
       state: vm.StateMissingFromIn,
@@ -56,29 +64,45 @@ myApp.controller('NewController', function (UserService) {
       referral_type: vm.ReferralTypeIn
     };
 
-    console.log('newIntake', newIntake);
-    swal({
-        title: 'Required fields will be sent to database',
+    if (newIntake.mcm_number == null || newIntake.intake_date == null || newIntake.age == null || newIntake.gender == null
+    || newIntake.last_seen == null || newIntake.reported_missing == null || newIntake.people_served == null|| newIntake.city == null
+  || newIntake.county == null|| newIntake.state == null || newIntake.school == null || newIntake.start_case_type == null|| newIntake.end_case_type == null
+|| newIntake.disposition == null || newIntake.close_date == null || newIntake.referral_type == null) {
+      swal({  
+        title: 'Please complete all required fields.',
+        icon: "warning",        
         width: 600,
         padding: 100,
         background: '#fff url(assets/page.JPG)'
-    }).then(function () {
+      })
+    } else {
+      console.log('newIntake', newIntake);
+      swal({
+        title: 'Required fields submitted to database.',
+        icon: "success",
+        width: 600,
+        padding: 100,
+        background: '#fff url(assets/page.JPG)'
+      }).then(function () {
         UserService.postInputData(newIntake);
-        // $location.path('/forms/newIntake');
-    });
-};
+      }).then(function (newIntake) {
+      //   console.log(newIntake.id)
+      //   UserService.postVulnerabilities(vulnerabilities);
+      })
+    };
+  };
 
+  //insert id into vulnerabilities object
 
+  //shara working on pdf below
+  var pdf = new jsPDF();
 
-    //shara working on pdf below
-    var pdf = new jsPDF();
-    
-        vm.printPDF = function () {
-            console.log('test');
-    
-            pdf.text(10, 10, 'Name: ' + vm.caseIn);
-  
-            pdf.save();
-        }
-    //shara working on pdf above
-  });
+  vm.printPDF = function () {
+    console.log('test');
+
+    pdf.text(10, 10, 'Name: ' + vm.caseIn);
+
+    pdf.save();
+  }
+  //shara working on pdf above
+});

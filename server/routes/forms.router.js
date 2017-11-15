@@ -107,7 +107,6 @@ router.get('/schools', function (req, res) {
   }
 }); //end schools get call
 
-
 //Requests for new intake forms.
 router.post('/newIntake', function (req, res) {
   var newIntake = req.body;
@@ -151,16 +150,17 @@ router.post('/newVulnerabilities', function (req, res) {
           for(let i = 0; i < newVulnArray.length; i++) {
             var sqlQuery = 'INSERT INTO case_vulnerabilities (case_data_id, vulnerabilities_id) VALUES $1, (SELECT (id) FROM vulnerabilites WHERE vulnerability = $2) '
             var valueArray = [newVulnId, newVulnArray[i]]
-        client.query(sqlQuery, valueArray, function (queryErr, resultObj) {
-          done();
-          if (queryErr) {
-            res.sendStatus(500);
-          } else {
-            res.send(202);
-          }
-        })};
-      }
-    })
+            client.query(sqlQuery, valueArray, function (queryErr, resultObj) {
+            done();
+            if (queryErr) {
+              res.sendStatus(500);
+              } else {
+              res.send(202);
+            } //end if statement
+          } //end for loop
+        )}; //end else
+      } // end big else
+    }) //end pool
   } else {
     // failure best handled on the server. do redirect here.
     console.log('not logged in');
@@ -169,8 +169,8 @@ router.post('/newVulnerabilities', function (req, res) {
   }
 }); //end input vulnerabilities Post
 
-router.get('/caseToEdit', function (req, res) {
-  var mcmCase = req.body;
+router.get('/caseToEdit: id', function (req, res) {
+  var mcmCase = {id: req.params.id};
   console.log('In get for caseToEdit', mcmCase);
   // check if logged in
   if (req.isAuthenticated()) {
@@ -205,7 +205,7 @@ router.put('/editIntake', function (req, res) {
       if (conErr) {
         res.sendStatus(500);
       } else {
-        var sqlQuery = 'UPDATE case_data SET age=$1, gender=$2, last_seen = $3, reported_missing = $4, people_served = $5, city = $6, county = $7, state = $8, school = $9, start_case_type = $10, end_case_type = $11, disposition = $12, close_date=$13 referral_type=$14 WHERE mcm_number = $15'
+        var sqlQuery = 'UPDATE case_data SET age=$1, gender=$2, last_seen = $3, reported_missing = $4, people_served = $5, (SELECT id FROM cities WHERE city = $6), (SELECT id FROM counties WHERE county = $7), state = $8, (SELECT id FROM schools WHERE school= $9), start_case_type = $10, end_case_type = $11, disposition = $12, close_date=$13 referral_type=$14 WHERE mcm_number = $15'
         var valueArray = [edit.age, edit.gender, edit.last_seen, edit.reported_missing, edit.people_served, edit.city, edit.county, edit.state, edit.school, edit.start_case_type, edit.end_case_type, edit.disposition, edit.close_date, edit.referral_type, edit.mcm_number]
         client.query(sqlQuery, valueArray, function (queryErr, resultObj) {
           done();

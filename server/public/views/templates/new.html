@@ -1,7 +1,7 @@
 <div ng-include="'views/partials/nav.html'"></div>
 
 </div>
-<form role="form" class='form-vertical'>
+<form role="form" class='form-vertical' novalidate>
   <div class="md-form" ng-init="UserService.getCounties(); UserService.getCities(); UserService.getAgencies(); UserService.getSchools();">
 
     <div layout='row' layout-fill layout-margin>
@@ -24,28 +24,28 @@
 
 
       <md-input-container>
-        <input id="Name" ng-model="nwc.NameIn" type="text" style="width:200px;" placeholder="Name of Missing Person">
+        <input id="Name" ng-model="nwc.NameIn" type="text" style="width:250px;" placeholder="Name of Missing Person">
       </md-input-container>
 
       <md-input-container>
-        <input id="DateofDissapearance" ng-model="nwc.DateofDissapearanceIn" type="date" placeholder="Date of Dissapearance">
+        <input id="DateofDisappearance" ng-model="nwc.DateofDisappearanceIn" type="date" placeholder="Date of Disappearance">
       </md-input-container>
 
       <md-input-container>
-        <input id="DateLastSeen" ng-model="nwc.DateLastSeenIn" type="date" style="width:150px;" placeholder="Date Last Seen" required>
+        <input id="DateLastSeen" ng-model="nwc.DateLastSeenIn" type="date" placeholder="Date Last Seen" required>
       </md-input-container>
 
       <md-input-container>
-        <input id="TimeLastSeen" ng-model="nwc.TimeLastSeenIn" type="time" style="width:150px;" placeholder="Time Last Seen">
+        <input id="TimeLastSeen" ng-model="nwc.TimeLastSeenIn" type="time" md-form placeholder="Time Last Seen">
       </md-input-container>
 
       <md-input-container>
-        <input id="DateReportedMissingtoPolice" ng-model="nwc.DateReportedMissingtoPoliceIn" style="width:250px;" type="date" placeholder="Date Reported Missing to Police"
+        <input id="DateReportedMissingtoPolice" ng-model="nwc.DateReportedMissingtoPoliceIn" style="width:300px;" type="date" placeholder="Date Reported Missing to Police"
           required>
       </md-input-container>
 
       <md-input-container>
-        <input id="LocationLastSeenCrossSt." ng-model="nwc.LocationLastSeenCrossStIn" style="width:200px;" type="text" placeholder="Location Last Seen/Cross St.">
+        <input id="LocationLastSeenCrossSt." ng-model="nwc.LocationLastSeenCrossStIn" type="text" style="width:275px;" placeholder="Location Last Seen/Cross St.">
       </md-input-container>
 
 
@@ -55,15 +55,15 @@
     <div layout='row' layout-fill layout-margin>
 
       <md-input-container>
-        <input id="FamilyMembersInvolvedInSearch" ng-model="nwc.FamilyMembersInvolvedInSearchIn" style="width:250px;" type="number"
+        <input id="FamilyMembersInvolvedInSearch" ng-model="nwc.FamilyMembersInvolvedInSearchIn" type="number" style="width:250px;"
           placeholder="Family Members Involved in Search" required>
       </md-input-container>
 
       <md-input-container>
         <label>State Missing From</label>
-        <md-select name="StateMissingFrom" ng-model="nwc.StateMissingFromIn" ng-change="nwc.itemChange()" type="number" placeholder="State Missing From"
-          required>
-          <md-option value="" disabled md-selected>State Missing From</md-option>
+        <md-select name="StateMissingFrom" ng-model="nwc.StateMissingFromIn" ng-change="nwc.itemChange()" type="number" style="width:200px;"
+          placeholder="State Missing From" required="true">
+          <md-option value="">State Missing From</md-option>
           <md-option value="AL">Alabama</md-option>
           <md-option value="AK">Alaska</md-option>
           <md-option value="AZ">Arizona</md-option>
@@ -120,7 +120,7 @@
 
       <md-input-container>
         <label>City Missing From</label>
-        <md-select ng-model="nwc.CityMissingFromIn" ng-change="nwc.itemChange()" required>
+        <md-select ng-model="nwc.CityMissingFromIn" style="width:200px;" ng-change="nwc.itemChange()" required>
           <md-option value="" disabled md-selected>City Missing From</md-option>
           <md-option ng-repeat="cityObj in nwc.cities" ng-value="cityObj.city"> {{cityObj.city}}</md-option>
         </md-select>
@@ -128,7 +128,7 @@
 
       <md-input-container>
         <label>County Missing From</label>
-        <md-select ng-model="nwc.CountyMissingFromIn" ng-change="nwc.itemChange()" required>
+        <md-select ng-model="nwc.CountyMissingFromIn" style="width:200px;" ng-change="nwc.itemChange()" required>
           <md-option value="" disabled md-selected>County Missing From</md-option>
           <md-option ng-repeat="countyObj in nwc.counties" ng-value="countyObj.county"> {{countyObj.county}}</md-option>
         </md-select>
@@ -136,7 +136,7 @@
 
       <md-input-container>
         <label>School District Where Child Was Enrolled </label>
-        <md-select ng-model="nwc.SchoolDistrictWhereChildWasEnrolledIn" ng-change="nwc.itemChange()" required>
+        <md-select ng-model="nwc.SchoolDistrictWhereChildWasEnrolledIn" style="width:325px;" ng-change="nwc.itemChange()" required>
           <md-option value="" disabled md-selected>School District Where Child Was Enrolled</md-option>
           <md-option ng-repeat="schoolObj in nwc.schools" ng-value="schoolObj.school"> {{schoolObj.school}}</md-option>
         </md-select>
@@ -147,6 +147,7 @@
     </div>
 
     <div layout='row' layout-fill layout-margin>
+
       <md-input-container>
         <input id="Age" ng-model="nwc.AgeIn" type="number" placeholder="Age" required>
       </md-input-container>
@@ -171,7 +172,7 @@
       </md-input-container>
 
       <md-input-container>
-        <input id="Other" ng-model="nwc.OtherIn" type="text" placeholder="Other">
+        <input id="OtherInfo" ng-model="nwc.OtherInfoIn" type="text" placeholder="Other">
       </md-input-container>
     </div>
 
@@ -216,17 +217,17 @@
 
       <md-input-container>
         <label>Glasses or Contacts?</label>
-        <md-select name="GlassesOrContacts" ng-model="nwc.GlassesOrContactsIn" ng-change="nwc.itemChange()" placeholder="Glasses or Contacts?"
-          id="yes">
+        <md-select name="GlassesOrContacts" ng-model="nwc.GlassesOrContactsIn" style="width:250px;" ng-change="nwc.itemChange()"
+          placeholder="Glasses or Contacts?" id="yes">
           <md-option value="No">No</md-option>
           <md-option value="Glasses">Glasses</md-option>
           <md-option value="Contacts">Contacts</md-option>
         </md-select>
       </md-input-container>
 
-      <mat-form-field class="example-full-width">
+      <!-- <mat-form-field class="example-full-width">
         <textarea matInput placeholder="Leave a comment"></textarea>
-      </mat-form-field>
+      </mat-form-field> -->
 
     </div>
 
@@ -273,13 +274,13 @@
 
     <div layout='row' layout-fill layout-margin>
 
-      <md-input-container flex>
-        <input id="Other" ng-model="nwc.OtherIn" type="text" placeholder="Other">
+      <md-input-container>
+        <input id="OtherLE" ng-model="nwc.OtherLEIn" style="width:100px;" type="text" placeholder="Other">
       </md-input-container>
 
-      <md-input-container flex>
+      <md-input-container>
         <label>Law Enforcement Agency On Case</label>
-        <md-select ng-model="nwc.LawEnforcementAgencyonCaseIn" ng-change="nwc.itemChange()">
+        <md-select ng-model="nwc.LawEnforcementAgencyonCaseIn" ng-change="nwc.itemChange()" style="width:280px;">
           <md-option value="" disabled md-selected>Law Enforcement Agency</md-option>
           <md-option ng-repeat="AgencyObj in nwc.agencies" ng-value="AgencyObj.agency"> {{AgencyObj.agency}}</md-option>
         </md-select>
@@ -295,7 +296,7 @@
       </md-input-container>
 
       <md-input-container flex>
-        <input id="LEPhoneNumber" ng-model="nwc.LEPhoneNumberIn" type="text" placeholder="LE Phone Number">
+        <input id="LEPhoneNumber" ng-model="nwc.LEPhoneNumberIn" type="number" placeholder="LE Phone Number">
       </md-input-container>
 
       <md-input-container flex>
@@ -314,120 +315,121 @@
 
     </div>
 
+    <h3> Case Information </h3>
+
 
     <div layout='row' layout-fill layout-margin>
 
-        <md-input-container flex>
-            
-      <label>Case Type When Opened</label>   
-      <md-select name="CaseTypeWhenOpened" ng-model="nwc.CaseTypeWhenOpenedIn" ng-change="nwc.itemChange()" placeholder="Case Type When Opened"
-        id="yes" required>
-        
-        <md-option value="" disabled md-selected>Case Type When Opened</md-option>
-        <md-option value="RunawayOpened">Runaway
-        </md-option>
-        <md-option value="AbductionbyFamilyMemberOpened">Abduction by Family Member
-        </md-option>
-        <md-option value="AbductionbyAcquaintanceOpened">Abduction by Acquaintance
-        </md-option>
-        <md-option value="AbductionbyStrangerOpened">Stranger Abduction
-        </md-option>
-        <md-option value="LIMOpened">LIM (Lost, Injured, Otherwise Missing)
-        </md-option>
-      </md-select>
-    </md-input-container>
-          
+      <md-input-container flex>
 
-    <md-input-container flex>
-        
-      <label>Case Type When Closed</label>
-      
-      <md-select name="CaseTypeWhenClosed" ng-model="nwc.CaseTypeWhenClosedIn" ng-change="nwc.itemChange()" placeholder="Case Type When Closed"
-        id="yes" required>
-        
-        <md-option value="" disabled md-selected>Case Type When Closed</md-option>
-        </md-option>
-        <md-option value="NotApplicableCaseTypeClosed">Not Applicable
-        </md-option>
-        <md-option value="RunawayClosed">Runaway
-        </md-option>
-        <md-option value="AbductionbyFamilyMemberClosed">Abduction by Family Member
-        </md-option>
-        <md-option value="AbductionbyAcquaintanceClosed">Abduction by Acquaintance
-        </md-option>
-        <md-option value="AbductionbyStrangerClosed">Stranger Abduction
-        </md-option>
-        <md-option value="LIMClosed">LIM (Lost, Injured, Otherwise Missing)
-        </md-option>
-      </md-select>
-    </md-input-container flex>
-          
-    <md-input-container flex>
-        
-      <label>Case Status</label>                
+        <label>Case Type When Opened</label>
+        <md-select name="CaseTypeWhenOpened" ng-model="nwc.CaseTypeWhenOpenedIn" ng-change="nwc.itemChange()" style="width:225px;"
+          placeholder="Case Type When Opened" id="yes" required>
 
-      <md-select name="CaseStatus" ng-model="nwc.CaseStatusIn" ng-change="nwc.itemChange()" placeholder="Case Status" id="yes">
-        <md-option value="" disabled md-selected>Case Status</md-option>
-        <md-option value="Open">Open
-        </md-option>
-        <md-option value="Closed">Closed
-        </md-option>
-        <md-option value="SuspendedOutofContact">Suspended - out of contact
-        </md-option>
-        <md-option value="SuspendedFalseInformation">Suspended - false information
-        </md-option>
-      </md-select>
-    </md-input-container flex>
-          
-<!-- need to add logic to show following field if "close" is selected -->
+          <md-option value="" disabled md-selected>Case Type When Opened</md-option>
+          <md-option value="Runaway Opened">Runaway
+          </md-option>
+          <md-option value="Abduction by Family Member">Abduction by Family Member
+          </md-option>
+          <md-option value="Abduction by Acquaintance">Abduction by Acquaintance
+          </md-option>
+          <md-option value="Abduction by Stranger">Stranger Abduction
+          </md-option>
+          <md-option value="LIM">LIM (Lost, Injured, Otherwise Missing)
+          </md-option>
+        </md-select>
+      </md-input-container>
+
+
+      <md-input-container flex>
+
+        <label>Case Type When Closed</label>
+
+        <md-select name="CaseTypeWhenClosed" ng-model="nwc.CaseTypeWhenClosedIn" ng-change="nwc.itemChange()" placeholder="Case Type When Closed"
+          id="yes" required>
+
+          <md-option value="" disabled md-selected>Case Type When Closed</md-option>
+          </md-option>
+          <md-option value="Not Applicable Case Type Closed">Not Applicable
+          </md-option>
+          <md-option value="Runaway Closed">Runaway
+          </md-option>
+          <md-option value="Abduction by Family Member">Abduction by Family Member
+          </md-option>
+          <md-option value="Abduction by Acquaintance Closed">Abduction by Acquaintance
+          </md-option>
+          <md-option value="Abduction by Stranger Closed">Stranger Abduction
+          </md-option>
+          <md-option value="LIM">LIM (Lost, Injured, Otherwise Missing)
+          </md-option>
+        </md-select>
+      </md-input-container flex>
+
+      <md-input-container flex>
+
+        <label>Case Status</label>
+
+        <md-select name="CaseStatus" ng-model="nwc.CaseStatusIn" ng-change="nwc.itemChange()" placeholder="Case Status" id="yes">
+          <md-option value="" disabled md-selected>Case Status</md-option>
+          <md-option value="Open">Open
+          </md-option>
+          <md-option value="Closed">Closed
+          </md-option>
+          <md-option value="Suspended Out of Contact">Suspended - out of contact
+          </md-option>
+          <md-option value="Suspended False Information">Suspended - false information
+          </md-option>
+        </md-select>
+      </md-input-container flex>
+
+      <!-- need to add logic to show following field if "close" is selected -->
 
 
 
       <md-input-container>
-          <input id="DateCaseClosed" style="width:250px;" ng-model="nwc.DateCaseClosedIn" type="date" placeholder="Date Case Closed"
-            required>
-        </md-input-container>
-  
-        <md-input-container flex>
-            <label>Case Disposition</label>                
-            
-      <md-select name="CaseDisposition" ng-model="nwc.CaseDispositionIn" ng-change="nwc.itemChange()" placeholder="Case Disposition"
-        id="yes" required>
-        <md-option value="" disabled md-selected>Case Disposition</md-option>
-        <md-option value="NotApplicableCaseDisposition">Not Applicable
-          </md-option>
-        <md-option value="ChildFoundSafe">Child found safe
-        </md-option>
-        <md-option value="ChildFoundHarmed/injured/neglected">Child found harmed/injured/neglected
-        </md-option>
-        <md-option value="ChildFoundDeceased">Child found deceased
-        </md-option>
-        <md-option value="ChildPlacedinCare">Child placed in Care
-        </md-option>
-      </md-select>
-    </md-input-container>
-      
-    
-    <md-input-container flex>
-        <label>Referral Type</label>        
-      <md-select name="ReferralType" ng-model="nwc.ReferralTypeIn" ng-change="nwc.itemChange()" placeholder="Referral Type" id="yes"
-        required>
-        <md-option value="" disabled md-selected>Referral Type</md-option>
-        <md-option value="Word of Mouth">Word of Mouth
-        </md-option>
-        <md-option value="Facebook">Facebook
-        </md-option>
-        <md-option value="Website">Website
-        </md-option>
-        </md-option>
-        <md-option value="ReferralByLaw Enforcement">Referral by Law Enforcement
-        </md-option>
-        </md-option>
-        <md-option value="ReferralByCountyWorker">Referral by County Worker
-        </md-option>
-      </md-select>
+        <input id="DateCaseClosed" ng-model="nwc.DateCaseClosedIn" type="date" placeholder="Date Case Closed" required>
+      </md-input-container>
+
       <md-input-container flex>
-          
+        <label>Case Disposition</label>
+
+        <md-select name="CaseDisposition" ng-model="nwc.CaseDispositionIn" ng-change="nwc.itemChange()" placeholder="Case Disposition"
+          id="yes" required>
+          <md-option value="" disabled md-selected>Case Disposition</md-option>
+          <md-option value="Not Applicable Case Disposition">Not Applicable
+          </md-option>
+          <md-option value="Child Found Safe">Child found safe
+          </md-option>
+          <md-option value="Child Found Harmed/injured/neglected">Child found harmed/injured/neglected
+          </md-option>
+          <md-option value="Child Found Deceased">Child found deceased
+          </md-option>
+          <md-option value="Child Placed in Care">Child placed in Care
+          </md-option>
+        </md-select>
+      </md-input-container>
+
+
+      <md-input-container flex>
+        <label>Referral Type</label>
+        <md-select name="ReferralType" ng-model="nwc.ReferralTypeIn" ng-change="nwc.itemChange()" placeholder="Referral Type" id="yes"
+          required>
+          <md-option value="" disabled md-selected>Referral Type</md-option>
+          <md-option value="Word of Mouth">Word of Mouth
+          </md-option>
+          <md-option value="Facebook">Facebook
+          </md-option>
+          <md-option value="Website">Website
+          </md-option>
+          </md-option>
+          <md-option value="Referral By Law Enforcement">Referral by Law Enforcement
+          </md-option>
+          </md-option>
+          <md-option value="Referral By CountyWorker">Referral by County Worker
+          </md-option>
+        </md-select>
+        <md-input-container flex>
+
     </div>
 
     <h3> Specific Questions to Occurrence </h3>
@@ -538,13 +540,6 @@
     </div>
 
 
-    <!-- <textarea name="commentWithOthers" ng-model="nwc.commentWithOthersIn" ng-change="nwc.itemChange()" form="usrform"></textarea> -->
-
-    <!-- <textarea name="commentHighRisk" ng-model="nwc.commentHighRiskIn" form="usrform"></textarea> -->
-
-    <!-- <textarea name="commentDisturbing" ng-model="nwc.commentDisturbingIn" form="usrform"></textarea> -->
-
-
     <h3> Vehicle Information </h3>
     <br>
 
@@ -564,9 +559,6 @@
         <input id="Model" ng-model="nwc.ModelIn" type="text" placeholder="Model">
       </md-input-container>
 
-      <md-input-container flex>
-        <input id="Make" ng-model="nwc.MakeIn" type="text" placeholder="Make">
-      </md-input-container>
 
       <md-input-container flex>
         <input id="LicenseNumber" ng-model="nwc.LicenseIn" type="text" placeholder="License #">
@@ -591,9 +583,10 @@
     <br>
     <div layout='row' layout-fill layout-margin>
 
-      <md-input-container flex>
+      <md-input-container>
         <label for="LeftBefore"> Has this person left before? </label>
-        <md-select name="LeftBefore" ng-model="nwc.LeftBeforeIn" ng-change="nwc.itemChange()" placeholder="" id="yes">
+        <md-select name="LeftBefore" style="width:300px;" ng-model="nwc.LeftBeforeIn" ng-change="nwc.itemChange()" placeholder=""
+          id="yes">
           <md-option value="" disabled md-selected></md-option>
           <md-option value="Yes">Yes</md-option>
           <md-option value="No">No</md-option>
@@ -623,7 +616,8 @@
 
       <md-input-container>
         <label for="Vulnerabilities"> Is this person disabled or have mental or medical problems? </label>
-        <md-select name="LeftBefore" ng-model="nwc.LeftBeforeIn" ng-change="nwc.itemChange()" placeholder="" id="yes">
+        <md-select name="LeftBefore" ng-model="nwc.LeftBeforeIn" style="width:425px;" ng-change="nwc.itemChange()" placeholder=""
+          id="yes">
           <md-option value="" disabled md-selected></md-option>
           <md-option value="Yes">Yes</md-option>
           <md-option value="No">No</md-option>
@@ -632,9 +626,10 @@
 
 
 
-      <md-input-container flex>
+      <md-input-container>
         <label for="LifeThreatening"> Are they life threatening conditions? </label>
-        <md-select name="LifeThreatening" ng-model="nwc.LifeThreateningIn" ng-change="nwc.itemChange()" placeholder="" id="yes">
+        <md-select name="LifeThreatening" ng-model="nwc.LifeThreateningIn" style="width:275px;" ng-change="nwc.itemChange()" placeholder=""
+          id="yes">
           <md-option value="" disabled md-selected></md-option>
           <md-option value="Yes">Yes</md-option>
           <md-option value="No">No</md-option>
@@ -679,7 +674,7 @@
         ADD/ADHD
       </md-checkbox>
 
-      <md-checkbox ng-model="nwc.AutisimIn" aria-label="ASD(Autism Spectrum Disorder)">
+      <md-checkbox ng-model="nwc.AutismIn" aria-label="ASD(Autism Spectrum Disorder)">
         ASD (Autism Spectrum Disorder)
       </md-checkbox>
 
@@ -701,7 +696,7 @@
         Depression (clinical)
       </md-checkbox>
 
-      <md-checkbox ng-model="nwc.DespressionSituationalIn" aria-label="Depression (situational)">
+      <md-checkbox ng-model="nwc.DepressionSituationalIn" aria-label="Depression (situational)">
         Depression (situational)
       </md-checkbox>
 
@@ -836,7 +831,6 @@
 
       <md-input-container flex>
         <label for="Date"> Date</label>
-
       </md-input-container>
 
 
@@ -845,23 +839,13 @@
 
       </md-input-container>
 
-
-
-      <!-- <textarea name="commentName" ng-model="nwc.commentNameIn" form="usrform"></textarea>
-      <label for="Signature"> Signature</label>
-      <textarea name="commentSignature" ng-model="nwc.ommentSignatureIn" form="usrform"></textarea>
-      <label for="Date"> Date</label>
-      <textarea name="commentDate" ng-model="nwc.commentDateIn" form="usrform"></textarea>
-      <label for="ReferredBy"> Referred By:</label>
-      <textarea name="commentReferredBy" ng-model="nwc.commentReferredBy" form="usrform"></textarea>-->
       <br>
       <br>
       <br>
     </div>
 
     <div layout='row' layout-fill layout-margin>
-
-      <md-button type="button" ng-click="nwc.click()" class="btn btn-info">Submit</md-button>
+      <md-button type="submit" ng-click="nwc.click()" class="btn btn-info">Submit</md-button>
       <md-button ng-click='nwc.printPDF()'>PDF</md-button>
     </div>
   </div>

@@ -2,11 +2,40 @@ body, html {
     margin: 0;
     padding: 0;
     font-family: "PT Sans", Arial, Helvetica, sans-serif;
-  }
+  };
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
 
   .myApp md-content {
     background-color: transparent !important; 
   }
+
+.chartNotes {
+    color: #666 !important;
+  }
+
+  md-tabs.md-default-theme md-ink-bar, md-tabs md-ink-bar {
+    color: #147d91 !important;
+    background-color: #147d91 !important;
+}
+
+md-tabs > md-tabs-wrapper > md-tabs-canvas > md-pagination-wrapper > md-tab-item:not([disabled]).md-active
+{
+  color: #147d91 !important;
+}
 
   .myApp md-content md-tabs {
       background: #f6f6f6;
@@ -21,14 +50,11 @@ body, html {
       margin-top: 0; 
   }
   
-  /* #MCMCaseNumber, #Age, #StateMissingFrom, #CountyMissingFrom, 
-  #CityMissingFrom, #SchoolDistrictWhereChildWasEnrolled, 
-  #LawEnforcementAgencyonCase, #FamilyMembersInvolvedInSearch {
-    border: 2px solid red;    
-  } */
-  .form-group{
-    padding: 18px;
-    margin: 10px;
+
+  .md-form {
+    padding: 40px;
+    margin: 20px;
+    
   }
   
   .instructions {
@@ -95,11 +121,11 @@ body, html {
     height: 100px;    
   }
   
-  md-nav-bar {
+.navbar {
     background-color: lightgoldenrodyellow;
     width: 100%;
     border-radius: 0px;
-    margin-left: 20px;  }
+  }
   
   ul {
     list-style-type: none;
@@ -147,3 +173,33 @@ body, html {
     float: left;
   }
 
+  md-input-container:not(.md-input-invalid).md-input-focused .md-input {
+    border-color: #147d91;
+}
+  md-input-container:not(.md-input-invalid).md-input-focused label {
+    color: #147d91;
+}
+
+
+md-input-container.md-input-focused:not(.md-input-has-value) md-select .md-select-value.md-select-placeholder {
+  color: #147d91; 
+  border-bottom-color: #147d91 ;
+  
+}
+
+.layout-margin {
+  padding: 20px;
+}
+
+/* .aria-label { */
+
+.md-label{
+
+  color: #302B2B;
+  font-size: 13px;
+  }
+
+  
+  md-checkbox.md-focused .md-container:before {
+    background-color: transparent !important;
+}

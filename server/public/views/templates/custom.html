@@ -1,10 +1,10 @@
 <div ng-include="'views/partials/nav.html'"></div>
 
 <div class="container" ng-init="cr.getMCMRecords(); cr.getJoinMCMRecords()">
-    <form name="userReport" novalidate ng-submit="userReport.$valid && cr.submitCustomFilters(caseType,state,county,district,agency,denial,vulnerability,age,gender,race,source)">
-    <div class="md-padding" ng-cloak>
+    <form name="userReport" layout="column" ng-cloak class="md-inline-form" novalidate ng-submit="userReport.$valid && cr.submitCustomFilters(caseType,state,county,district,agency,denial,vulnerability,age,gender,race,source)">
+        <div layout-gt-sm="row" layout-padding>
             <h1 class="md-title">Select Report Filters:</h1>
-            <div layout="row">
+            <div layout="row" layout-align="start center">
                 <md-input-container>
                     <label>Case Type</label>
                     <md-select ng-model="caseType">
@@ -24,73 +24,73 @@
                 <md-input-container>
                     <label>MN County</label>
                     <md-select ng-model="county">
-                            <md-optgroup label="Select an MN County">
-                        <md-option ng-repeat="county in cr.mnCounties" value="{{county}}">{{county}}</md-option>
-                            </md-optgroup>
+                        <md-optgroup label="Select an MN County">
+                            <md-option ng-repeat="county in cr.mnCounties" value="{{county}}">{{county}}</md-option>
+                        </md-optgroup>
                     </md-select>
                 </md-input-container>
                 <md-input-container>
                     <label>School District</label>
                     <md-select ng-model="district">
-                            <md-optgroup label="Select an MN School District">
-                        <md-option ng-repeat="district in cr.schoolDistricts" value="{{district}}">{{district}}</md-option>
-                            </md-optgroup>
+                        <md-optgroup label="Select an MN School District">
+                            <md-option ng-repeat="district in cr.schoolDistricts" value="{{district}}">{{district}}</md-option>
+                        </md-optgroup>
                     </md-select>
                 </md-input-container>
                 <md-input-container>
                     <label>Law Enforcement Agency</label>
                     <md-select ng-model="agency">
-                            <md-optgroup label="Select a Law Enforcement Agency">
-                        <md-option ng-repeat="agency in cr.lawEnforcement" value="{{agency}}">{{agency}}</md-option>
-                            </md-optgroup>
+                        <md-optgroup label="Select a Law Enforcement Agency">
+                            <md-option ng-repeat="agency in cr.lawEnforcement" value="{{agency}}">{{agency}}</md-option>
+                        </md-optgroup>
                     </md-select>
                 </md-input-container>
                 <md-input-container>
                     <label>Jurisdictional Denial</label>
                     <md-select ng-model="denial">
-                            <md-optgroup label="Select whether there was Jurisdictional Denial">
-                        <md-option ng-repeat="denial in cr.agencyDenial" value="{{denial}}">{{denial}}</md-option>
-                            </md-optgroup>
+                        <md-optgroup label="Select whether there was Jurisdictional Denial">
+                            <md-option ng-repeat="denial in cr.agencyDenial" value="{{denial}}">{{denial}}</md-option>
+                        </md-optgroup>
                     </md-select>
                 </md-input-container>
                 <md-input-container>
                     <label>Vulnerability</label>
                     <md-select ng-model="vulnerability">
-                            <md-optgroup label="Select a Vulnerability">
-                        <md-option ng-repeat="vulnerability in cr.vulnerabilities" value="{{vulnerability}}">{{vulnerability}}</md-option>
-                            </md-optgroup>
+                        <md-optgroup label="Select a Vulnerability">
+                            <md-option ng-repeat="vulnerability in cr.vulnerabilities" value="{{vulnerability}}">{{vulnerability}}</md-option>
+                        </md-optgroup>
                     </md-select>
                 </md-input-container>
                 <md-input-container>
                     <label>Age</label>
                     <md-select ng-model="age">
-                            <md-optgroup label="Select an Age">
-                        <md-option ng-repeat="age in cr.ages" value="{{age}}">{{age}}</md-option>
-                            </md-optgroup>
+                        <md-optgroup label="Select an Age">
+                            <md-option ng-repeat="age in cr.ages" value="{{age}}">{{age}}</md-option>
+                        </md-optgroup>
                     </md-select>
                 </md-input-container>
                 <md-input-container>
                     <label>Gender</label>
                     <md-select ng-model="gender">
-                            <md-optgroup label="Select a Gender">
-                        <md-option ng-repeat="gender in cr.genders" value="{{gender}}">{{gender}}</md-option>
-                            </md-optgroup>
+                        <md-optgroup label="Select a Gender">
+                            <md-option ng-repeat="gender in cr.genders" value="{{gender}}">{{gender}}</md-option>
+                        </md-optgroup>
                     </md-select>
                 </md-input-container>
                 <md-input-container>
                     <label>Race/Ethnicity</label>
                     <md-select ng-model="race">
-                            <md-optgroup label="Select a Race/Ethnicity">
-                        <md-option ng-repeat="race in cr.raceEthnicity" value="{{race}}">{{race}}</md-option>
-                            </md-optgroup>
+                        <md-optgroup label="Select a Race/Ethnicity">
+                            <md-option ng-repeat="race in cr.raceEthnicity" value="{{race}}">{{race}}</md-option>
+                        </md-optgroup>
                     </md-select>
                 </md-input-container>
                 <md-input-container>
                     <label>Referral Source</label>
                     <md-select ng-model="source">
-                            <md-optgroup label="Select a Referral Source">
-                        <md-option ng-repeat="source in cr.referralSource" value="{{source}}">{{source}}</md-option>
-                            </md-optgroup>
+                        <md-optgroup label="Select a Referral Source">
+                            <md-option ng-repeat="source in cr.referralSource" value="{{source}}">{{source}}</md-option>
+                        </md-optgroup>
                     </md-select>
                 </md-input-container>
 
@@ -100,5 +100,21 @@
                     </md-button>
                 </md-input-container>
             </div>
-    </div>
+        </div>
+
+        <table>
+            <h1>Report</h1>
+            <thead>
+                <th>test header</th>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>test data</td>
+                </tr>
+                <tr>
+                    <td>test data</td>
+                </tr>
+            </tbody>
+        </table>
 </div>
