@@ -27,6 +27,12 @@ myApp.controller('EditController', function(UserService) {
       sexualExploitation: false,
       sexualMinority: false
     }
+    vm.states = ["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","District Of Columbia",
+      "Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland",
+      "Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey",
+      "New Mexico","New York","North Carolina","North Dakota","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island",
+      "South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia",
+      "Wisconsin","Wyoming"];
 
     vm.getData = function (mcmNum) {
       console.log('In getData');
@@ -63,4 +69,54 @@ myApp.controller('EditController', function(UserService) {
       console.log('editedForm', vm.editedForm);
       UserService.updateForm(vm.editedForm);
     }
+
+
+    // vm.newState = newState;
+
+    // vm.querySearch = function (query) {
+    //   var results = query ? self.states.filter(createFilterFor(query)) : self.states,
+    //     deferred;
+    //   if (self.simulateQuery) {
+    //     deferred = $q.defer();
+    //     $timeout(function () { deferred.resolve(results); }, Math.random() * 1000, false);
+    //     return deferred.promise;
+    //   } else {
+    //     return results;
+    //   }
+    // }
+
+    // vm.searchTextChange = function (text) {
+    //   $log.info('Text changed to ' + text);
+    // }
+
+    // vm.selectedItemChange = function (item) {
+    //   $log.info('Item changed to ' + JSON.stringify(item));
+    // }
+
+    // vm.loadAll = function () {
+    //   var allStates = 'Alabama, Alaska, Arizona, Arkansas, California, Colorado, Connecticut, Delaware,\
+    //           Florida, Georgia, Hawaii, Idaho, Illinois, Indiana, Iowa, Kansas, Kentucky, Louisiana,\
+    //           Maine, Maryland, Massachusetts, Michigan, Minnesota, Mississippi, Missouri, Montana,\
+    //           Nebraska, Nevada, New Hampshire, New Jersey, New Mexico, New York, North Carolina,\
+    //           North Dakota, Ohio, Oklahoma, Oregon, Pennsylvania, Rhode Island, South Carolina,\
+    //           South Dakota, Tennessee, Texas, Utah, Vermont, Virginia, Washington, West Virginia,\
+    //           Wisconsin, Wyoming';
+
+    //   return allStates.split(/, +/g).map(function (state) {
+    //     return {
+    //       value: state.toLowerCase(),
+    //       display: state
+    //     };
+    //   });
+    // }
+
+    // vm.createFilterFor = function (query) {
+    //   var lowercaseQuery = angular.lowercase(query);
+
+    //   return function filterFn(state) {
+    //     return (state.value.indexOf(lowercaseQuery) === 0);
+    //   };
+
+    // }
+
   });

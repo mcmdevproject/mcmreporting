@@ -225,6 +225,7 @@
       </md-select>
     </md-input-container>
 
+
     <md-input-container>
       <label>State Missing From</label>
       <md-select name="StateMissingFrom" ng-model="nwc.StateMissingFromIn" ng-change="nwc.itemChange()" type="number" placeholder="State Missing From"
@@ -285,6 +286,33 @@
     </md-input-container>
 
   </div>
+
+  
+<!-- Autocomplete dive -->
+
+  <md-content class="md-padding">
+    <form ng-submit="$event.preventDefault()">
+      
+      <md-autocomplete 
+      md-selected-item="ec.selectedItem" 
+      md-search-text="ec.searchText" 
+      md-items="item in ec.querySearch(ec.searchText)"
+      md-item-text="item.display" 
+      md-min-length="0" 
+      placeholder="State">
+        <md-item-template>
+          <span md-highlight-text="ctrl.searchText" md-highlight-flags="^i">{{item.display}}</span>
+        </md-item-template>
+        <md-not-found>
+          No states matching "{{ctrl.searchText}}" were found.
+          <a ng-click="ctrl.newState(ctrl.searchText)">Create a new one!</a>
+        </md-not-found>
+      </md-autocomplete>
+      
+    </form>
+  </md-content>
+
+  <!-- End dive -->
 
   <div layout='row' layout-fill layout-margin>
 
