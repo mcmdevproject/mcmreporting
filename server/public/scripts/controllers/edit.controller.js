@@ -4,29 +4,47 @@ myApp.controller('EditController', function(UserService) {
     vm.userService = UserService;
     vm.editedForm = {};
     vm.showEditForm = false;
-    vm.vulnerabilities = {
-      add: false,
-      autism: false,
-      alcholism: false,
-      anxiety: false,
-      biPolar: false,
-      depressionClinical: false,
-      depressionSituational: false,
-      drugUse: false,
-      economic: false,
-      emotionalAbuse: false,
-      gang: false,
-      oDD: false,
-      labor: false,
-      luringAdult: false,
-      luringChild: false,
-      missingFromCare: false,
-      physicalAbuse: false,
-      runaway: false,
-      sexualAbuse: false,
-      sexualExploitation: false,
-      sexualMinority: false
+    // vm.vulnerabilities = {
+    //   add: false,
+    //   autism: false,
+    //   alcholism: false,
+    //   anxiety: false,
+    //   biPolar: false,
+    //   depressionClinical: false,
+    //   depressionSituational: false,
+    //   drugUse: false,
+    //   economic: false,
+    //   emotionalAbuse: false,
+    //   gang: false,
+    //   oDD: false,
+    //   labor: false,
+    //   luringAdult: false,
+    //   luringChild: false,
+    //   missingFromCare: false,
+    //   physicalAbuse: false,
+    //   runaway: false,
+    //   sexualAbuse: false,
+    //   sexualExploitation: false,
+    //   sexualMinority: false
+    // }
+
+    vm.vulnerabilities = [{ name: "ADD/ADHD", value: false }, { name: "ASD", value: false }, { name: "Alcohol use/abuse", value: false},
+      { name: "Anxiety", value: false }, { name: "Bipolar Disorder", value: false},
+      { name: "Depression (Clinical)", value: false }, { name: "Depression (Situational)", value: false}, 
+      { name: "Drug use/abuse", value: false }, { name: "Economic exploitation (history", value: false }, 
+      { name: "Emotional abuse (history)", value: false }, { name: "Gang association", value: false }, 
+      { name: "ODD", value: false }, { name: "Labor Exploitation (history)", value: false }, 
+      { name: "Luring/grooming by adult", value: false }, { name: "Luring/grooming by child", value: false }, 
+      { name: "Missing from care", value: false }, { name: "Physical Abuse (history)", value: false },
+      { name: "Runaway (history)", value: false }, { name: "Sexual Abuse (history)", value: false }, 
+      { name: "Sexual exploitation (history)", value: false }, { name: "Sexual Minority", value: false }]
+
+    vm.changeVul = function (inputVuln) {
+      console.log("inputVuln", inputVuln);
+      inputVuln.value = !inputVuln.value;
+      console.log("inputVuln.name", inputVuln.value);
     }
+
     vm.states = ["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","District Of Columbia",
       "Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland",
       "Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey",

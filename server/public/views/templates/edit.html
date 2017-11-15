@@ -40,37 +40,37 @@
 
   <div layout='row' layout-fill layout-margin>
 
-    <md-checkbox ng-model="ec.ADDIn" aria-label="ADD/ADHD">
+    <md-checkbox ng-model="ec.ADDIn" aria-label="ADD/ADHD" ng-click="ec.changeVul(ec.vulnerabilities[0])">
       ADD/ADHD
     </md-checkbox>
 
-    <md-checkbox ng-model="ec.AutisimIn" aria-label="ASD(Autism Spectrum Disorder)">
+    <md-checkbox ng-model="ec.AutisimIn" aria-label="ASD(Autism Spectrum Disorder)" ng-click="ec.changeVul(ec.vulnerabilities[1])">
       ASD (Autism Spectrum Disorder)
     </md-checkbox>
 
 
-    <md-checkbox ng-model="ec.AlcoholIn" aria-label="AlcoholUseAbuse">
+    <md-checkbox ng-model="ec.AlcoholIn" aria-label="AlcoholUseAbuse" ng-click="ec.changeVul(ec.vulnerabilities[2])">
       Alcohol Use/Abuse
     </md-checkbox>
 
 
-    <md-checkbox ng-model="ec.AnxietyIn" aria-label="Anxiety">
+    <md-checkbox ng-model="ec.AnxietyIn" aria-label="Anxiety" ng-click="ec.changeVul(ec.vulnerabilities[3])">
       Anxiety
     </md-checkbox>
 
-    <md-checkbox ng-model="ec.BiPolarIn" aria-label="BiPolarDisorder">
+    <md-checkbox ng-model="ec.BiPolarIn" aria-label="BiPolarDisorder" ng-click="ec.changeVul(ec.vulnerabilities[4])">
       Bi-Polar Disorder
     </md-checkbox>
 
-    <md-checkbox ng-model="ec.DepressionClinicalIn" aria-label="Depression(clinical)">
+    <md-checkbox ng-model="ec.DepressionClinicalIn" aria-label="Depression(clinical)" ng-click="ec.changeVul(ec.vulnerabilities[5])">
       Depression (clinical)
     </md-checkbox>
 
-    <md-checkbox ng-model="ec.DespressionSituationalIn" aria-label="Depression (situational)">
+    <md-checkbox ng-model="ec.DespressionSituationalIn" aria-label="Depression (situational)" ng-click="ec.changeVul(ec.vulnerabilities[6])">
       Depression (situational)
     </md-checkbox>
 
-    <md-checkbox ng-model="ec.DrugUseIn" aria-label="Drug Use/Abuse">
+    <md-checkbox ng-model="ec.DrugUseIn" aria-label="Drug Use/Abuse" ng-click="ec.changeVul(ec.vulnerabilities[7])">
       Drug Use/Abuse
     </md-checkbox>
 
@@ -78,27 +78,27 @@
 
   <div layout='row' layout-fill layout-margin>
 
-    <md-checkbox ng-model="ec.EconomicIn" aria-label="EconomicExploitation(history)">
+    <md-checkbox ng-model="ec.EconomicIn" aria-label="EconomicExploitation(history)" ng-click="ec.changeVul(ec.vulnerabilities[8])">
       Economic exploitation (history)
     </md-checkbox>
 
-    <md-checkbox ng-model="ec.EmotionalAbuseIn" aria-label="Emotional Abuse (history)">
+    <md-checkbox ng-model="ec.EmotionalAbuseIn" aria-label="Emotional Abuse (history)" ng-click="ec.changeVul(ec.vulnerabilities[9])">
       Emotional Abuse (history)
     </md-checkbox>
 
-    <md-checkbox ng-model="ec.GangIn" aria-label="Gang Association">
+    <md-checkbox ng-model="ec.GangIn" aria-label="Gang Association" ng-click="ec.changeVul(ec.vulnerabilities[10])">
       Gang Association
     </md-checkbox>
 
-    <md-checkbox ng-model="ec.ODDIn" aria-label="ODD (Oppositional Defiant Disorder)">
+    <md-checkbox ng-model="ec.ODDIn" aria-label="ODD (Oppositional Defiant Disorder)" ng-click="ec.changeVul(ec.vulnerabilities[11])">
       ODD (Oppositional Defiant Disorder)
     </md-checkbox>
 
-    <md-checkbox ng-model="ec.LaborIn" aria-label="Labor Exploitation (history)">
+    <md-checkbox ng-model="ec.LaborIn" aria-label="Labor Exploitation (history)" ng-click="ec.changeVul(ec.vulnerabilities[12])">
       Labor Exploitation (history)
     </md-checkbox>
 
-    <md-checkbox ng-model="ec.LuringAdultIn" aria-label="Luring/grooming by adult">
+    <md-checkbox ng-model="ec.LuringAdultIn" aria-label="Luring/grooming by adult" ng-click="ec.changeVul(ec.vulnerabilities[13])">
       Luring/grooming by adult
     </md-checkbox>
 
@@ -106,32 +106,32 @@
   </div>
   <div layout='row' layout-fill layout-margin>
 
-    <md-checkbox ng-model="ec.LuringChildIn" aria-label="Luring/grooming by child">
+    <md-checkbox ng-model="ec.LuringChildIn" aria-label="Luring/grooming by child" ng-click="ec.changeVul(ec.vulnerabilities[14])">
       Luring/grooming by child
     </md-checkbox>
 
 
-    <md-checkbox ng-model="ec.MissingFromCareIn" aria-label="Missing From Care">
+    <md-checkbox ng-model="ec.MissingFromCareIn" aria-label="Missing From Care" ng-click="ec.changeVul(ec.vulnerabilities[15])">
       Missing From Care
     </md-checkbox>
 
-    <md-checkbox ng-model="ec.PhysicalAbuseIn" aria-label="Physical Abuse (history)">
+    <md-checkbox ng-model="ec.PhysicalAbuseIn" aria-label="Physical Abuse (history)" ng-click="ec.changeVul(ec.vulnerabilities[16])">
       Physical Abuse (history)
     </md-checkbox>
 
-    <md-checkbox ng-model="ec.RunawayIn" aria-label="Runaway (history)">
-      Physical Abuse (history)
+    <md-checkbox ng-model="ec.RunawayIn" aria-label="Runaway (history)" ng-click="ec.changeVul(ec.vulnerabilities[17])">
+       Runaway (history)
     </md-checkbox>
 
-    <md-checkbox ng-model="ec.SexualAbuseIn" aria-label="Sexual Abuse (history)">
+    <md-checkbox ng-model="ec.SexualAbuseIn" aria-label="Sexual Abuse (history)" ng-click="ec.changeVul(ec.vulnerabilities[18])">
       Sexual Abuse (history)
     </md-checkbox>
 
-    <md-checkbox ng-model="ec.SexualExploitationIn" aria-label="Sexual Exploitation (history)">
-      Sexual Abuse (history)
+    <md-checkbox ng-model="ec.SexualExploitationIn" aria-label="Sexual Exploitation (history)" ng-click="ec.changeVul(ec.vulnerabilities[19])">
+      Sexual Exploitation (history)
     </md-checkbox>
 
-    <md-checkbox ng-model="ec.SexualMinorityIn" aria-label="Sexual Exploitation (history)">
+    <md-checkbox ng-model="ec.SexualMinorityIn" aria-label="Sexual Exploitation (history)" ng-click="ec.changeVul(ec.vulnerabilities[20])">
       Sexual Minority (LGBTQ, etc.)
     </md-checkbox>
 
