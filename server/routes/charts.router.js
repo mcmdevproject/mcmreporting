@@ -130,13 +130,35 @@ router.post('/custom', function (req, res) {
           valueArray.push(custom.referral_type);
         } // end if list
 
+      
         tempArray.forEach(function (currentValue, index, array) {
           console.log('line 113, currentValue', currentValue)
-          if (currentValue === '(SELECT id FROM counties WHERE county = $' || '(SELECT id FROM schools WHERE school = $' || 'law_enforcement.id = (SELECT id FROM law_enforcement WHERE agency = $'||'race_ethnicity.id = (SELECT id FROM race_ethnicity WHERE race_ethnicity = $' || 'vulnerability.id = (SELECT id FROM vulnerabilities WHERE vulnerability = $') {
+          if (currentValue === '(SELECT id FROM counties WHERE county = $')  {
             count++
             queryArray.push(currentValue + count + ')')
-            console.log('this is the if statement')
-          } else {
+            console.log('this is the county if statement')
+          } 
+          if (currentValue === '(SELECT id FROM schools WHERE school = $')  {
+            count++
+            queryArray.push(currentValue + count + ')')
+            console.log('this is the school if statement')  
+          }
+          if (currentValue === 'law_enforcement.id = (SELECT id FROM law_enforcement WHERE agency = $')  {
+            count++
+            queryArray.push(currentValue + count + ')')
+            console.log('this is the agency if statement')
+          } 
+          if (currentValue === 'race_ethnicity.id = (SELECT id FROM race_ethnicity WHERE race_ethnicity = $')  {
+            count++
+            queryArray.push(currentValue + count + ')')
+            console.log('this is the race/ethnicity if statement')
+          } 
+          if (currentValue === 'vulnerability.id = (SELECT id FROM vulnerabilities WHERE vulnerability = $')  {
+            count++
+            queryArray.push(currentValue + count + ')')
+            console.log('this is the vulnerability if statement')
+          }
+          else {
             count++
             queryArray.push(currentValue + count)
             console.log('this is the else statement')
@@ -150,7 +172,7 @@ router.post('/custom', function (req, res) {
         
           client.query(sqlQuery, valueArray, function (queryErr, resultObj) {
             done();
-            console.log('resultObj', resultObj)
+            console.log('resultObj', resultObj.rows)
             if (queryErr) {
               res.sendStatus(500);
             } else {
