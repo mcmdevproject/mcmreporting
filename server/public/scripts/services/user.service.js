@@ -53,15 +53,6 @@ myApp.service('UserService', function ($http, $location) {
   };
 
 
-// self.postVulnerabilities = function (vulnerabilities) {
-//   return $http({
-//     method: 'POST',
-//     url: '/forms/newVulnerabilities',
-//     data: vulnerabilities
-//   })
-// };
-
-
 
   self.getChartData = function () {
     //on page load, GET all case_data from DB to the DOM

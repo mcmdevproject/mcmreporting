@@ -1,28 +1,31 @@
 <div ng-include="'views/partials/nav.html'"></div>
 
 <div id="manage" ng-init="mc.getAllUsers()">
-        <h2>Register a New User</h2>
+    <h2>Register a New User</h2>
 
-            <a href="#register">Register</a>
+    <a href="#register">Register</a>
 
-        <h2>Current Users</h2>    
-        <table>
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Edit</th>
-                        <th>Delete</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr ng-repeat="user in mc.users">   
-                        <td>{{user.username}}</td>
-                        <td><input type="checkbox" autocomplete="off" ng-click="mc.editPriviledge(user)" ng-checked="user.admin"></td>
-                        <td><button type="button" ng-click="mc.deleteUser(user)"></button></td>
-
-                        
-                        
-                    </tr>
-                </tbody>
-            </table>
+    <h2>Current Users</h2>
+    <table>
+        <thead>
+            <div id="managetable">
+            <tr>
+                <th>Name</th>
+                <th>Admin</th>
+                <th>Delete</th>
+            </tr>
+        </div>
+        </thead>
+        <tbody>
+            <tr ng-repeat="user in mc.users">
+                <td>{{user.username}}</td>
+                <td>
+                    <md-checkbox autocomplete="off" ng-click="mc.editPriviledge(user)" ng-checked="user.admin"></md-checkbox>
+                </td>
+                <td>
+                    <md-button type="button" ng-click="mc.deleteUser(user)">Delete</md-button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </div>
