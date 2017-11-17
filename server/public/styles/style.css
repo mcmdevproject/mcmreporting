@@ -14,6 +14,15 @@ body, html {
   float: left;
 }
 
+th{
+  background-color: #147d91;
+ color: white;
+  border-bottom: 1px solid #ddd;
+ text-align: left;
+  padding: 10px;
+  font-size: 20px;
+  }
+
 /* #managetable {
   padding: 20px;
   margin: 20px;
