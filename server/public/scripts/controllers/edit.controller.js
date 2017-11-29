@@ -156,7 +156,7 @@ myApp.controller('EditController', function(UserService) {
           vm.start_case_type = UserService.caseBeingEdited.data[0].start_case_type;   
           vm.end_case_type = UserService.caseBeingEdited.data[0].end_case_type;     
           vm.agency = UserService.caseBeingEdited.data[0].agency;                 
-          vm.jurisdictional_denial = UserService.caseBeingEdited.data[0].end_case_type;                 
+          vm.jurisdictional_denial = UserService.caseBeingEdited.data[0].jurisdictional_denial;                 
           
           vm.vulnArray = [];
           vm.raceArray = [];

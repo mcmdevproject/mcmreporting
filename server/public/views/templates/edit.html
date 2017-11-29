@@ -181,7 +181,7 @@
       <label>City Missing From</label>
           
       <md-select name="City Missing From" id="city" ng-model="ec.CityMissingFormIn" ng-change="ec.itemChange()" ng-value selected="{{ec.city}}" ng-selected="true">
-        <md-option value="" disabled md-selected>City Missing From</md-option>
+        <!-- <md-option value="" disabled md-selected>City Missing From</md-option> -->
         <md-option ng-repeat="cityObj in ec.cities" ng-value="cityObj.city"> {{cityObj.city_name}}</md-option>
         <!-- <md-option  ng-value="West Saint Paul" selected>West Saint Paul</md-option> -->
       </md-select>
@@ -189,8 +189,8 @@
 
     <md-input-container style="margin-right: 10px;width: 20%;">
       <label>County Missing From</label>
-      <md-select ng-model="ec.CountyMissingFormIn" ng-change="ec.itemChange()"ng-value selected="{{ec.county}}" ng-selected="true">
-        <md-option value="" disabled md-selected>County Missing From</md-option>
+      <md-select ng-model="ec.CountyMissingFormIn" ng-change="ec.itemChange()" ng-value selected="{{ec.county}}" ng-selected="true">
+        <!-- <md-option value="" disabled md-selected>County Missing From</md-option> -->
         <md-option ng-repeat="countyObj in ec.counties" ng-value="countyObj.county">{{countyObj.county_name}}</md-option>
         <md-option ng-value="">Dakota</md-option>
       </md-select>
@@ -263,8 +263,10 @@
     </md-input-container>
 
     <md-input-container>
-      <label>Case Type When Opened</label>          
-      <md-select name="Starting Case Type" id="StartingCaseType" ng-model="ec.start_case_type" ng-change="ec.itemChange()" ng-value selected="ec.start_case_type" ng-selected="true">
+      <label>Case Type When Opened</label> 
+      <!-- <md-select name="Gender" id="gender" ng-model="ec.gender" ng-value selected="ec.gender" ng-selected="true"> -->
+          
+      <md-select name="Starting Case Type" id="start_case_type" ng-model="ec.start_case_type" ng-change="ec.itemChange()" ng-value selected="ec.start_case_type" ng-selected="true">
         <md-option value="" disabled selected>Case Type</md-option>        
         <md-option value="Runaway">Runaway</md-option>
         <md-option value="Abduction by Family Member">Abduction by Family Member</md-option>
@@ -282,8 +284,8 @@
     <md-input-container>
       <label>Case Type When Closed</label>
 
-      <md-select name="Ending Case Type" id="yes" ng-model="ec.end_case_type" ng-value selected="ec.end_case_type">
-        <md-option value="" disabled selected>Case Type</md-option>
+      <md-select name="Ending Case Type" id="yes" ng-model="ec.end_case_type" ng-value selected="ec.end_case_type" placeholder="{{ec.end_case_type}}">
+        <!-- <md-option value="" disabled selected>Case Type</md-option> -->
         <md-option value="null"></md-option>
         <md-option value="Runaway">Runaway</md-option>
         <md-option value="Abduction by Family Member">Abduction by Family Member</md-option>
@@ -308,7 +310,7 @@
 
     <md-input-container style="width:280px;">
       <label>Jurisdictional Denial?</label>
-      <md-select ng-model="nwc.JurisdictionalDenialIn1" ng-change="ec.itemChange()" placeholder="Jurisdictional denial">
+      <md-select ng-model="nwc.JurisdictionalDenialIn1" ng-change="ec.itemChange()" placeholder="{{ec.jurisdictional_denial}}">
         <md-option value="" disabled md-selected>Jurisdictional denial?</md-option>
         <md-option value="Yes">Yes</md-option>
         <md-option value="No">No </md-option>
@@ -417,8 +419,6 @@
 
 
 
-<<<<<<< HEAD
-=======
   <md-input-container>    
     <md-select name="Referral Type" placeholder="Referral Type" id="yes" ng-model="ec.referralType">
       <md-option value="" disabled selected>Referral Type</md-option>
@@ -431,7 +431,6 @@
   </md-input-container>
       
   </div>
->>>>>>> master
 
     <md-input-container>
       <md-select name="Referral Type" placeholder="Referral Type" id="yes" ng-model="ec.referralType">
