@@ -1,10 +1,10 @@
 # MCM Reporting
 
-An application built for Missing Children Minnesota, to allow case workers to fill out an intake form for a new case, which will then be able to be printed to a pdf. In addition to this, a portion of the data from the form will be stored in a database for reporting purposes.
+An application built for ![Missing Children Minnesota] (http://missingchildrenmn.com/) to allow case workers to fill out an intake form for a new case and print as a PDF. A select portion of the data from the intake form will be stored in a database for reporting purposes. Reports are dynamically generated based on all case data. Administrators also can manage users.
 
 ## Built With
 
-HTML5, CSS3, AngularJS, NodeJS, Express, Passport, PostgreSQL, Bootstrap, Angular Materials, Sweet Alerts, and ChartsJS.
+HTML5, CSS3, AngularJS, NodeJS, Express, Passport, PostgreSQL, Bootstrap, Angular Materials, Sweet Alerts, ChartsJS, FileSaver, and JSPDF.
 
 ## Getting Started
 
@@ -137,19 +137,26 @@ CREATE TABLE "case_vulnerabilities" (
 
 ## Screen Shots
 
-![Image of Login Page](https://github.com/mcmdevproject/mcmreporting/blob/master/server/public/images/ScreeShotLogin.png)
+![Image of Login Page](https://github.com/mcmdevproject/mcmreporting/blob/master/images/ScreenShotLogin.png)
 
-![Image of Landing Page](https://github.com/mcmdevproject/mcmreporting/blob/master/server/public/images/ScreeShotLanding.png)
+![Image of Landing Page](https://github.com/mcmdevproject/mcmreporting/blob/master/images/ScreenShotLanding.png)
 
-![Image of Intake Page](https://github.com/mcmdevproject/mcmreporting/blob/master/server/public/images/ScreeShotIntake.png)
+![Image of Intake Page](https://github.com/mcmdevproject/mcmreporting/blob/master/images/ScreenShotIntake.png)
 
-![Image of Edit Page](https://github.com/mcmdevproject/mcmreporting/blob/master/server/public/images/ScreeShotEdit.png)
+![Image of Edit Page](https://github.com/mcmdevproject/mcmreporting/blob/master/images/ScreenShotEdit.png)
 
-![Image of Global Page](https://github.com/mcmdevproject/mcmreporting/blob/master/server/public/images/ScreeShotGlobal.png)
+![Image of Core Reports-Global Dashboard](https://github.com/mcmdevproject/mcmreporting/blob/master/images/ScreenShotCoreReports-GlobalDashboard.png)
 
-![Image of Annual Page](https://github.com/mcmdevproject/mcmreporting/blob/master/server/public/images/ScreeShotAnnual.png)
+![Image of Core Reports-Preventitive Insights Dashboard](https://github.com/mcmdevproject/mcmreporting/blob/master/images/ScreenShotCoreReports-PreventitiveInsights.png)
 
-![Image of Manage Page](https://github.com/mcmdevproject/mcmreporting/blob/master/server/public/images/ScreeShotManage.png)
+![Image of Core Reports-Annual Dashboard](https://github.com/mcmdevproject/mcmreporting/blob/master/images/ScreenShotCoreReports-AnnualDashboard.png)
+
+![Image of Custom Reports Page](https://github.com/mcmdevproject/mcmreporting/blob/master/images/ScreenShotCustomReport.png)
+
+![Image of Manage Page](https://github.com/mcmdevproject/mcmreporting/blob/master/images/ScreenShotManage.png)
+
+## Training Documentation
+![Documentation Link](https://docs.google.com/document/d/1MZs07rzlsEQSh6nYC7bSStXdK9RbekO0uRIdiWWzbuE/edit?usp=sharing)
 
 ## Authors
 
