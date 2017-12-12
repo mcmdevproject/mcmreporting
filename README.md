@@ -9,7 +9,15 @@ HTML5, CSS3, AngularJS, NodeJS, Express, Passport, PostgreSQL, Bootstrap, Angula
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. 
-Clone these files to your local machine, ensure that you have a PostgreSQL database correctly configured, and make sure to install the required dependencies via Node.js.
+
+1. Install [Node.js](https://nodejs.org/en/)
+1. Upgrade npm to latest using `npm i -g npm`
+1. Install PostgreSQL and create the mnMissingChildren database from the `psql` command line
+1. Execute the mnMissingChildren.sql file to create the required tables
+1. Execute an `INSERT INTO user (id,username,password,admin) VALUES (1,'test','test',TRUE)` command to create a test user
+1. If you are installing on Windows, bcrypt has a dependency that must be installed manually ahead of time: https://github.com/kelektiv/node.bcrypt.js/wiki/Installation-Instructions#microsoft-windows
+1. Clone this repo to your local machine
+1. Install the required dependencies via Node.js by using `npm install`
 
 ### Prerequisites
 
@@ -38,6 +46,8 @@ Clone these files to your local machine, ensure that you have a PostgreSQL datab
 ### Installing
 
 After the dependencies are installed, use ```npm start``` to start the server, which will run on port 5001.
+
+### SQL script for database
 
 ```sql
 --user table--
