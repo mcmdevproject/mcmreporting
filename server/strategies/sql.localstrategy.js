@@ -74,9 +74,19 @@ passport.use('local', new localStrategy({
           console.log('User obj', user);
           // Hash and compare
           if (encryptLib.comparePassword(password, user.password)) {
-            // all good!
-            console.log('passwords match');
-            done(null, user);
+            // Passwords match
+            console.log('user.approved', user.approved);
+            if (user.approved) {
+              // all good!
+              console.log('passwords match');
+              done(null, user);
+            } else {
+              console.log('user is not approved');
+              done(null, false, {
+                message: 'User is not approved.'
+              });
+            }
+           
           } else {
             console.log('password does not match');
             done(null, false, {
