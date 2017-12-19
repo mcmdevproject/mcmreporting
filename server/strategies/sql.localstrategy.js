@@ -59,7 +59,7 @@ passport.use('local', new localStrategy({
       function (err, result) {
         var user = {};
 
-        console.log('here');
+        console.log('here', result);
 
         // Handle Errors
         if (err) {
@@ -75,10 +75,10 @@ passport.use('local', new localStrategy({
           // Hash and compare
           if (encryptLib.comparePassword(password, user.password)) {
             // Passwords match
-            console.log('user.approved', user.approved);
+            console.log('passwords match');
             if (user.approved) {
               // all good!
-              console.log('passwords match');
+              console.log('user.approved', user.approved);
               done(null, user);
             } else {
               console.log('user is not approved');

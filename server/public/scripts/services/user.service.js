@@ -55,13 +55,13 @@ myApp.service('UserService', function ($http, $location) {
   };
 
 
-self.postVulnerabilities = function (vulnerabilities) {
-  return $http({
-    method: 'POST',
-    url: '/forms/newVulnerabilities',
-    data: vulnerabilities
-  })
-};
+  self.postVulnerabilities = function (vulnerabilities) {
+    return $http({
+      method: 'POST',
+      url: '/forms/newVulnerabilities',
+      data: vulnerabilities
+    })
+  };
 
 
 
@@ -374,6 +374,18 @@ self.postVulnerabilities = function (vulnerabilities) {
       data: editedForm
     }).then(function (response) {
       console.log('Response', response);
+    })
+  };
+
+  // updates user approval
+  self.updateApproval = function (user) {
+    console.log('User to be edited', user);
+    return $http({
+      method: 'PUT',
+      url: '/manage',
+      data: user
+    }).then(function (response) {
+      console.log('Response', response.data);
     })
   };
 

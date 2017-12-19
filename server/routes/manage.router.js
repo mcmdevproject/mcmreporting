@@ -10,7 +10,7 @@ router.get('/', function(req, res) {
         if (conErr) {
           res.sendStatus(500);
         } else {
-          client.query('SELECT username,admin FROM users', function (queryErr, resultObj) {
+          client.query('SELECT username,admin,approved FROM users', function (queryErr, resultObj) {
             done();
             if (queryErr) {
               res.sendStatus(500);
@@ -33,15 +33,17 @@ router.get('/', function(req, res) {
         pool.connect(function (connectionError, client, done) {
             console.log('put route manage ->', req.body);
             console.log('put route manage req.body.username',req.body.username);
+            console.log('put route manage req.body.username', req.body.approved);
             console.log('put route manage req.body.username',req.body.admin);
             var userNameEdit = req.body.username;
-            var userAdminEdit = req.body.admin
+            var userApprovalEdit = req.body.approved;
+            var userAdminEdit = req.body.admin;
             if (connectionError) {
                 console.log(connectionError);
                 res.sendStatus(501);
             } else {
-                var pQuery = 'UPDATE users SET admin=$1 WHERE username=$2';
-               var valueArray = [userAdminEdit, userNameEdit];
+                var pQuery = 'UPDATE users SET admin=$1, approved=$2 WHERE username=$3';
+                var valueArray = [userAdminEdit, userApprovalEdit,userNameEdit];
                 
                 client.query(pQuery, valueArray, function (queryError, resultObj) {
                     done();
