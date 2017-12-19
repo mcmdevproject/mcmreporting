@@ -3,7 +3,8 @@ myApp.controller('ManageController', function (UserService) {
   var vm = this;
   vm.userService = UserService;
   vm.userObject = UserService.userObject;
-
+  vm.approvedUsers = [];
+  vm.pendingUsers = [];
 
 
   //basic function to test manage route and get call
@@ -11,6 +12,16 @@ myApp.controller('ManageController', function (UserService) {
     UserService.getAllUsers().then(function () {
       vm.users = UserService.users.list;
       console.log('vm.users', vm.users);
+    }).then(function () {
+      vm.approvedUsers = [];
+      vm.pendingUsers = [];
+      for (var i = 0; i < vm.users.length; i++) {
+        if (vm.users[i].approved === true) {
+          vm.approvedUsers.push(vm.users[i]);
+        } else {
+          vm.pendingUsers.push(vm.users[i]);
+        }
+      }
     })
   }
 
@@ -26,7 +37,9 @@ myApp.controller('ManageController', function (UserService) {
     console.log('In editApproval', user);
     user.approved = !user.approved;
     console.log('New approval value:', user.approved);
-    UserService.updateApproval(user)
+    UserService.updateApproval(user).then(function () {
+      vm.getAllUsers();
+    })
   }
 
   vm.editPriviledge = function (user) {

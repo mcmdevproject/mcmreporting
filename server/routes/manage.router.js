@@ -75,7 +75,7 @@ router.post('/', function (req, res) {
               res.sendStatus(501);
           } else {
               var pQuery = 'DELETE FROM users WHERE username=$1';
-             var valueArray = [userNamedelete];
+              var valueArray = [userNamedelete];
               client.query(pQuery, valueArray, function (queryError, resultObj) {
                   done();
                   if (queryError) {
