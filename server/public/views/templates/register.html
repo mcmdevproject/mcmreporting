@@ -1,19 +1,19 @@
-<div ng-include="'views/partials/nav.html'"></div>
-
 <div class="container">
     <h1 class="lead">Register User</h1>
     <h1 class="lead alert alert-danger" role="alert" ng-if="lc.message != ''">{{lc.message}}</h2>
         <form ng-submit="lc.registerUser()">
-            <div>
-                <label class="registerLabel" for="username">Username:</label>
+            <div class="manage">
+                <label class="userLabel" for="username">Username:</label>
                 <input type="text" ng-model="lc.user.username" />
             </div>
-            <div>
-                <label class="registerLabel" for="password">Password:</label>
+            <div class="manage">
+                <label class="userLabel" for="password">Password:</label>
                 <input type="password" ng-model="lc.user.password" />
             </div>
             <br></br>
-            <md-button class="btn teal" type="submit" name="submit" value="Register" >Register</md-button>            
-            <a href="#/manage">Cancel</a>
+            <div>
+                <md-button class="btn teal" type="submit" name="submit" value="Register">Register</md-button>
+                <a href="#/manage">Cancel</a>
+            </div>
         </form>
 </div>

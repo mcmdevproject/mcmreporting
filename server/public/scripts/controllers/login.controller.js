@@ -19,7 +19,7 @@ myApp.controller('LoginController', function ($http, $location, UserService) {
           // location works with SPA (ng-route)
           $location.path('/user'); // http://localhost:5000/#/user
         } else {
-          console.log('LoginController -- login -- failure: ', response);
+          console.log('LoginController -- login -- failure: ', response.data);
           vm.message = "Incorrect username or password. Please try again.";
         }
       }).catch(function (response) {
