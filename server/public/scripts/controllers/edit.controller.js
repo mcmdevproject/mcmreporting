@@ -140,6 +140,11 @@ myApp.controller('EditController', function(UserService) {
 
     });
 
+    UserService.getSchools().then(function (response) {
+      console.log('schools', response.data);
+      return vm.schools = response.data;
+    });
+
 
     vm.getData = function (mcmNum) {
       console.log('In getData');
@@ -264,11 +269,16 @@ myApp.controller('EditController', function(UserService) {
 
           // vm.cityName = vm.cities[vm.caseBeingEdited.data[0].city].city_name;
           console.log('vm.city', vm.city);
+          vm.city = [vm.caseBeingEdited.data[0].city_name];
+          console.log('vm.city', vm.city);
+
+          vm.county_name = [vm.caseBeingEdited.data[0].county_name];
+          console.log('vm.county', vm.county_name);
 
           vm.familyMembers = vm.caseBeingEdited.data[0].people_served;
 
           for (var b = 0; b < vm.caseBeingEdited.data.length; b++) {
-            var tempPoliceDept = { id: vm.caseBeingEdited.data[b].law_enforcement_id, value: vm.caseBeingEdited.data[b].jurisdictional_denial};
+            var tempPoliceDept = { id: vm.caseBeingEdited.data[b].law_enforcement_id, name: vm.caseBeingEdited.data[b].agency, value: vm.caseBeingEdited.data[b].jurisdictional_denial};
             var duplicateDenials = 0
             for (var c = 0; c < vm.jurisdictional_denial.length; c++) {
               if (vm.jurisdictional_denial[c].id == tempPoliceDept.id && vm.jurisdictional_denial[c].value == tempPoliceDept.value) {
@@ -277,12 +287,18 @@ myApp.controller('EditController', function(UserService) {
             }
             if (duplicateDenials === 0) {
               vm.jurisdictional_denial.push(tempPoliceDept);
+             
             }
           }
           console.log('vm.jurisdictional_denial', vm.jurisdictional_denial);
           
           // vm.schoolDisctrict = 123;
-          // vm.gender = UserService.caseBeingEdited.data[0].age;
+          for (var p = 0; p < vm.schools.length; p++) {
+            if (vm.schools[p].id === vm.caseBeingEdited.data[0].school) {
+              vm.selectedSchoolDistrict = vm.schools[p];
+            }
+          }
+          console.log('vm.schoolDistrict', vm.selectedSchoolDistrict);
           
 
           console.log('vm.caseBeingEdited', vm.caseBeingEdited);

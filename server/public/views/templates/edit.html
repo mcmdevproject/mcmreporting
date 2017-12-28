@@ -180,26 +180,23 @@
     <md-input-container>
       <label>City Missing From</label>
           
-      <md-select name="City Missing From" id="city" ng-model="ec.CityMissingFormIn" ng-change="ec.itemChange()" ng-value selected="ec.city" ng-selected="true">
-        <!-- <md-option value="" disabled md-selected>City Missing From</md-option> -->
-        <md-option value="ec.city" name="ec.cities[ec.city]" selected></md-option>
+      <md-select name="City Missing From" id="city" ng-model="ec.CityMissingFormIn" ng-change="ec.itemChange()" ng-selected="true">
+        <md-option ng-repeat="city in ec.city" value="ec.city_id" selected>{{city}}</md-option>
         <md-option ng-repeat="cityObj in ec.cities" ng-value="{{cityObj.id}}">{{cityObj.city_name}}</md-option>
       </md-select>
     </md-input-container>
 
     <md-input-container style="margin-right: 10px;width: 20%;">
       <label>County Missing From</label>
-      <md-select ng-model="ec.CountyMissingFormIn" ng-change="ec.itemChange()"ng-value selected="{{ec.county}}" ng-selected="true">
-        <md-option value="" disabled md-selected>County Missing From</md-option>
+      <md-select ng-model="ec.CountyMissingFormIn" ng-change="ec.itemChange()" ng-selected="true">
+        <md-option ng-repeat="county in ec.county_name" value="ec.county" selected>{{county}}</md-option>
         <md-option ng-repeat="countyObj in ec.counties" ng-value="countyObj.county">{{countyObj.county_name}}</md-option>
-        <md-option ng-value="">Dakota</md-option>
       </md-select>
     </md-input-container>
 
     <md-input-container>
       <label>State Missing From</label>              
       <md-select name="StateMissingFrom" id="StateMissingFrom" ng-model="ec.state" ng-change="ec.itemChange()" ng-value selected="ec.state" ng-selected="true">
-        <md-option value="" disabled md-selected>State Missing From</md-option>
         <md-option value="AL">Alabama</md-option>
         <md-option value="AK">Alaska</md-option>
         <md-option value="AZ">Arizona</md-option>
@@ -297,8 +294,9 @@
 
     <md-input-container>
       <label>Law Enforcement Agency On Case</label>
-      <md-select ng-model="ec.LawEnforcementAgencyonCaseIn1" ng-change="ec.itemChange()" style="width:280px;" placeholder="Law Enforcement Agency">
-        <md-option value="" disabled md-selected>Law Enforcement Agency</md-option>
+      <md-select ng-model="ec.LawEnforcementAgencyonCaseIn1" ng-change="ec.itemChange()" style="width:280px;" placeholder="Law Enforcement Agency" ng-selected="true">
+        <md-option ng-if="ec.jurisdictional_denial[0]" ng-model="ec.jurisdictional_denial[0]" value="ec.jurisdictional_denial[0].id" selected>{{ec.jurisdictional_denial[0].name}}</md-option>
+        <md-option ng-repeat="dept in ec.agencies" ng-value="{{dept.id}}">{{dept.agency}}</md-option>
       </md-select>
     </md-input-container>
 
@@ -318,7 +316,8 @@
     <md-input-container>
       <label>Law Enforcement Agency On Case</label>
       <md-select ng-model="ec.LawEnforcementAgencyonCaseIn2" ng-change="ec.itemChange()" style="width:280px;">
-        <md-option value="" disabled md-selected>Law Enforcement Agency</md-option>
+        <md-option ng-if="ec.jurisdictional_denial[1]" ng-model="ec.jurisdictional_denial[1]" value="ec.jurisdictional_denial[1].id" selected>{{ec.jurisdictional_denial[1].name}}</md-option>
+        <md-option ng-repeat="dept in ec.agencies" ng-value="{{dept.id}}">{{dept.agency}}</md-option>
       </md-select>
     </md-input-container>
 
@@ -336,8 +335,8 @@
     <md-input-container>
       <label>Law Enforcement Agency On Case</label>
       <md-select ng-model="ec.LawEnforcementAgencyonCaseIn3" ng-change="ec.itemChange()" style="width:280px;">
-        <md-option value="" disabled md-selected>Law Enforcement Agency</md-option>
-        <md-option ng-repeat="AgencyObj in ec.agencies" ng-value="AgencyObj.agency"> {{AgencyObj.agency}}</md-option>
+        <md-option ng-if="ec.jurisdictional_denial[2]" ng-model="ec.jurisdictional_denial[2]" value="ec.jurisdictional_denial[2].id" selected>{{ec.jurisdictional_denial[2].name}}</md-option>
+        <md-option ng-repeat="dept in ec.agencies" ng-value="{{dept.id}}">{{dept.agency}}</md-option>
       </md-select>
     </md-input-container>
 
@@ -357,8 +356,8 @@
     <md-input-container>
       <label>Law Enforcement Agency On Case</label>
       <md-select ng-model="ec.LawEnforcementAgencyonCaseIn4" ng-change="ec.itemChange()" style="width:280px;">
-        <md-option value="" disabled md-selected>Law Enforcement Agency</md-option>
-        <md-option ng-repeat="AgencyObj in ec.agencies" ng-value="AgencyObj.agency"> {{AgencyObj.agency}}</md-option>
+        <md-option ng-if="ec.jurisdictional_denial[3]" ng-model="ec.jurisdictional_denial[3]" value="ec.jurisdictional_denial[3].id" selected>{{ec.jurisdictional_denial[3].name}}</md-option>
+        <md-option ng-repeat="dept in ec.agencies" ng-value="{{dept.id}}">{{dept.agency}}</md-option>
       </md-select>
     </md-input-container>
 
@@ -377,8 +376,8 @@
     <md-input-container>
       <label>Law Enforcement Agency On Case</label>
       <md-select ng-model="ec.LawEnforcementAgencyonCaseIn5" ng-change="ec.itemChange()" style="width:280px;">
-        <md-option value="" disabled md-selected>Law Enforcement Agency</md-option>
-        <md-option ng-repeat="AgencyObj in ec.agencies" ng-value="AgencyObj.agency"> {{AgencyObj.agency}}</md-option>
+        <md-option ng-if="ec.jurisdictional_denial[4]" ng-model="ec.jurisdictional_denial[4]" value="ec.jurisdictional_denial[4].id" selected>{{ec.jurisdictional_denial[4].name}}</md-option>
+        <md-option ng-repeat="dept in ec.agencies" ng-value="{{dept.id}}">{{dept.agency}}</md-option>
       </md-select>
     </md-input-container>
 
@@ -395,10 +394,15 @@
 
   <div layout='row' layout-fill layout-margin>
     <md-input-container>
-      <input type="text" name="" id="schoolDisctrict" placeholder="School District Number" ng-model="ec.schoolDisctrict">
+      <label>School District</label>
+      <md-select name="School District" id="school" ng-model="ec.schoolDistrict" ng-change="ec.itemChange()" ng-selected="true">
+        <md-option ng-model="ec.selectedSchoolDistrict" value="ec.selectedSchoolDistrict.id" selected>{{ec.selectedSchoolDistrict.school_name}}</md-option>
+        <md-option ng-repeat="school in ec.schools" ng-value="{{school.id}}">{{school.school_name}}</md-option>
+      </md-select>
     </md-input-container>
 
     <md-input-container>
+      <label>Disposition</label>
       <md-select name="Disposition" placeholder="Disposition" id="disposition" ng-model="ec.disposition">
         <md-option value="Missing Found Safe">Missing Found Safe</md-option>
         <md-option value="Missing Found Injured">Missing Found Injured</md-option>
@@ -406,10 +410,8 @@
       </md-select>
     </md-input-container>
 
-
-
-
   <md-input-container>    
+    <label>Referral Type</label>
     <md-select name="Referral Type" placeholder="Referral Type" id="yes" ng-model="ec.referralType" ng-value selected="ec.referralType">
       <md-option value="Word of Mouth">Word of Mouth</md-option>
       <md-option value="Facebook">Facebook</md-option>

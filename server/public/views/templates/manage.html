@@ -1,11 +1,7 @@
 <div ng-include="'views/partials/nav.html'"></div>
 
-<div id="manage" ng-init="mc.getAllUsers()">
-        <h2>Register a New User</h2>
-
-            <a href="#register">Register</a>
-
-        <h2>Current Users</h2>    
+<div id="managePage" ng-init="mc.getAllUsers()">
+       <h2>Approved Users</h2>    
         <table class="spaceUnder">
                 <thead>
                     <tr>
@@ -15,11 +11,36 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr ng-repeat="user in mc.users">   
+                    <tr ng-repeat="user in mc.approvedUsers">   
                         <td>{{user.username}}</td>
                         <td><md-checkbox type="checkbox" autocomplete="off" ng-click="mc.editPriviledge(user)" ng-checked="user.admin"></md-checkbox></td>
                         <td><md-button type="button" ng-click="mc.deleteUser(user)"><i class="fa fa-trash"></i></md-button></td>                                    
                     </tr>
                 </tbody>
             </table>
+        <div class="pendingUsers" ng-show="mc.pendingUsers.length > 0">
+            <h2>Pending Users</h2>
+            <table class="spaceUnder">
+                <thead>
+                    <tr>
+                        <th width="30%">Name</th>
+                        <th width="30%">Approve?</th>
+                        <th width="30%">Admin?</th>
+                        <th width="30%">Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="user in mc.pendingUsers">
+                        <td>{{user.username}}</td>
+                        <td><md-checkbox type="checkbox" autocomplete="off" ng-click="mc.editApproval(user)" ng-checked="user.approved"></md-checkbox></td>
+                        <td><md-checkbox type="checkbox" autocomplete="off" ng-click="mc.editPriviledge(user)" ng-checked="user.admin"></md-checkbox></td>
+                        <td>
+                            <md-button type="button" ng-click="mc.deleteUser(user)">
+                                <i class="fa fa-trash"></i>
+                            </md-button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 </div>

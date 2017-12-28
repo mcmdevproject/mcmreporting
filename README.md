@@ -55,7 +55,8 @@ CREATE TABLE "users" (
     "id" serial primary key,
     "username" varchar(80),
     "password" varchar (240),
-    "admin" boolean default FALSE
+    "admin" boolean default FALSE,
+	"approved" boolean default FALSE
 );
 
 --research data table --
@@ -147,19 +148,19 @@ CREATE TABLE "case_vulnerabilities" (
 
 ## Screen Shots
 
-![Image of Login Page](https://github.com/mcmdevproject/mcmreporting/blob/master/server/public/images/ScreeShotLogin.png)
+![Image of Login Page](https://github.com/mcmdevproject/mcmreporting/blob/master/server/public/images/ScreenShotLogin.png)
 
-![Image of Landing Page](https://github.com/mcmdevproject/mcmreporting/blob/master/server/public/images/ScreeShotLanding.png)
+![Image of Landing Page](https://github.com/mcmdevproject/mcmreporting/blob/master/server/public/images/ScreenShotLanding.png)
 
-![Image of Intake Page](https://github.com/mcmdevproject/mcmreporting/blob/master/server/public/images/ScreeShotIntake.png)
+![Image of Intake Page](https://github.com/mcmdevproject/mcmreporting/blob/master/server/public/images/ScreenShotIntake.png)
 
-![Image of Edit Page](https://github.com/mcmdevproject/mcmreporting/blob/master/server/public/images/ScreeShotEdit.png)
+![Image of Edit Page](https://github.com/mcmdevproject/mcmreporting/blob/master/server/public/images/ScreenShotEdit.png)
 
-![Image of Global Page](https://github.com/mcmdevproject/mcmreporting/blob/master/server/public/images/ScreeShotGlobal.png)
+![Image of Global Page](https://github.com/mcmdevproject/mcmreporting/blob/master/server/public/images/ScreenShotGlobal.png)
 
-![Image of Annual Page](https://github.com/mcmdevproject/mcmreporting/blob/master/server/public/images/ScreeShotAnnual.png)
+![Image of Annual Page](https://github.com/mcmdevproject/mcmreporting/blob/master/server/public/images/ScreenShotAnnual.png)
 
-![Image of Manage Page](https://github.com/mcmdevproject/mcmreporting/blob/master/server/public/images/ScreeShotManage.png)
+![Image of Manage Page](https://github.com/mcmdevproject/mcmreporting/blob/master/server/public/images/ScreenShotManage.png)
 
 ## Authors
 

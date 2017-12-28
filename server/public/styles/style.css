@@ -39,7 +39,7 @@ tr:hover {
   font-family: "PT Sans", Arial, Helvetica, sans-serif;
 }
 
-#manage{
+.manage{
   font-family: "PT Sans", Arial, Helvetica, sans-serif;
 }
 
@@ -175,7 +175,7 @@ md-tabs > md-tabs-wrapper > md-tabs-canvas > md-pagination-wrapper > md-tab-item
     height: 100px;    
   }
 
-  #manage {
+  #managePage {
     padding: 20px;
     margin: 40px;
   }
@@ -289,7 +289,7 @@ img {
   width: 500px;
 }
 
-.registerLabel {
+.userLabel {
   display: inline-block;
   width: 120px;
 }
