@@ -3,7 +3,8 @@ CREATE TABLE "users" (
     "id" serial primary key,
     "username" varchar(80),
     "password" varchar (240),
-    "admin" boolean default FALSE
+    "admin" boolean default FALSE,
+    "approved" boolean default FALSE
 );
 
 --research data table --
