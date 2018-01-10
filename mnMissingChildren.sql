@@ -62,17 +62,22 @@ CREATE TABLE "race_ethnicity" (
 "id" serial primary key,
 "race_ethnicity" varchar (50)
 );
-    --sample data--
-    INSERT INTO race_ethnicity (race_ethnicity) VALUES 
-    ('African-American'), ('Asian/Pacific Islander'), 
-    ('Caucasian'), ('Latin'), ('Native American');
+    
+INSERT INTO race_ethnicity (race_ethnicity) VALUES 
+('African-American'), ('Asian/Pacific Islander'), 
+('Caucasian'), ('Latin'), ('Native American');
 
 CREATE TABLE "vulnerabilities" (
 "id" serial primary key,
 "vulnerability" varchar (100)
 );
 
-    INSERT INTO vulnerabilities (vulnerability) VALUES ('ADD/ADHD'), ('ASD'), ('Alcohol use/abuse'), ('Anxiety'), ('Bipolar Disorder'), ('Depression (Clinical)'), ('Depression (Situational)'), ('Drug use/abuse'), ('Economic exploitation (history'), ('Emotional abuse (history)'), ('Gang association'), ('ODD'), ('Labor Exploitation (history)'), ('Luring/grooming by adult'), ('Luring/grooming by child'), ('Missing from care'), ('Physical Abuse (history)'), ('Runaway (history)'), ('Sexual Abuse (history)'), ('Sexual exploitation (history)'), ('Sexual Minority');
+INSERT INTO vulnerabilities (vulnerability) VALUES ('ADD/ADHD'), ('ASD'), ('Alcohol use/abuse'), ('Anxiety'), 
+('Bipolar Disorder'), ('Depression (Clinical)'), ('Depression (Situational)'), ('Drug use/abuse'), 
+('Economic exploitation (history'), ('Emotional abuse (history)'), ('Gang association'), ('ODD'), 
+('Labor Exploitation (history)'), ('Luring/grooming by adult'), ('Luring/grooming by child'), ('Missing from care'), 
+('Physical Abuse (history)'), ('Runaway (history)'), ('Sexual Abuse (history)'), ('Sexual exploitation (history)'), 
+('Sexual Minority');
 
 
 --Join tables--
