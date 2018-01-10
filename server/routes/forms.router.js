@@ -223,6 +223,7 @@ router.post('/newIntake', function (req, res) {      //  --1
                         var createAgencyQuery = function() {
                           for (let l = 0; l < newIntake.case_lawenforcement_denial.length; l++) {
                             tempAgencyArray.push('('+resultObj.rows[0].id+ ', (Select id FROM law_enforcement WHERE agency = $'+agencyCount++ + '), $' +agencyCount++ +')')
+                            console.log('LE Name -->', newIntake.case_lawenforcement_denial[l].name, newIntake.case_lawenforcement_denial[l].denial);
                             agencyArray.push(newIntake.case_lawenforcement_denial[l].name, newIntake.case_lawenforcement_denial[l].denial);
                             }  //end for loop
                           } //end creqte Query function

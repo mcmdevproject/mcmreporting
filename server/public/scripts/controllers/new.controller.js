@@ -408,8 +408,10 @@ myApp.controller('NewController', function (UserService) {
         }
         ]
         newIntake.case_lawenforcement_denial = vm.jurisdictions.filter(function (jurisdiction) {
+          console.log('jurisdiction', jurisdiction);
+          jurisdiction.denial = Boolean(jurisdiction.denial);
+          console.log('denial', typeof jurisdiction.denial);
           return jurisdiction.name !== undefined;
-
         })
       })
         .then(function () {
