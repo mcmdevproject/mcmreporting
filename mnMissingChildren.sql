@@ -53,11 +53,24 @@ CREATE TABLE "law_enforcement" (
 "agency" varchar (100)
 );
 
+-- Example Law Enforcement Agencies --
+INSERT INTO law_enforcement (agency) VALUES ('Minneapolis Police Department'), ('Hennepin County Sheriffs Office'), 
+('Saint Paul Police Department'), ('Ramsey County Sheriffs Office');
+
+-- SQL command to add new law enforcement agencies -- 
+INSERT INTO law_enforcement (agency) VALUES ('Agency goes here');
+
 CREATE TABLE "schools" (
 "id" serial primary key,
 "school_name" varchar (100)
 );
 
+-- Example School Districts -- 
+INSERT INTO schools (school_name) VALUES ('Minneapolis Public School District'), ('St. Paul Public School District'), 
+('West St. Paul-Mendota Hts.-Eagan')
+
+-- SQL command to add new school districts --
+INSERT INTO schools (school_name) VALUES ('District goes here');
 
 CREATE TABLE "race_ethnicity" (
 "id" serial primary key,
