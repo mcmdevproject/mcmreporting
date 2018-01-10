@@ -214,13 +214,16 @@ myApp.controller('EditController', function(UserService) {
               vm.case_vulnerabilities[16].value = true;
             } else if (vm.vulnArray[j] == 18) {
               vm.case_vulnerabilities[17].value = true;
-            } else if (vm.vulnArra[j] == 19) {
+            } else if (vm.vulnArray[j] == 19) {
               vm.case_vulnerabilities[18].value = true;
             } else if (vm.vulnArray[j] == 20) {
               vm.case_vulnerabilities[19].value = true;
             } else if (vm.vulnArray[j] == 21) {
               vm.case_vulnerabilities[20].value = true;
-            }       
+            } else if (vm.vulnArray[j] == 22) {
+              vm.case_vulnerabilities[21].value = true;
+              console.log('No vulnerability');
+            }    
           }
 
           for (var j = 0; j < vm.raceArray.length; j++) { 
@@ -258,14 +261,17 @@ myApp.controller('EditController', function(UserService) {
           vm.DateReportedMissingtoPoliceIn = new Date(reportedYear + '-' + reportedMonth + '-' + reportedDay);
           console.log('vm.DateLastSeenIn', vm.DateReportedMissingtoPoliceIn);
 
-          var closeYear = vm.caseBeingEdited.data[0].close_date.slice(0, 4);
-          var closeMonth = vm.caseBeingEdited.data[0].close_date.slice(5, 7);
-          var closeDay = vm.caseBeingEdited.data[0].close_date.slice(8, 10);
-          closeDay = parseInt(closeDay) + 1;
-          closeDay = closeDay.toString();
-          console.log('stuff', closeYear, closeMonth, closeDay);
-          vm.DateClosed = new Date(closeYear + '-' + closeMonth + '-' + closeDay);
-          console.log('vm.DateClosed', vm.DateClosed);
+          if (vm.caseBeingEdited.data[0].close_date) {
+            var closeYear = vm.caseBeingEdited.data[0].close_date.slice(0, 4);
+            var closeMonth = vm.caseBeingEdited.data[0].close_date.slice(5, 7);
+            var closeDay = vm.caseBeingEdited.data[0].close_date.slice(8, 10);
+            closeDay = parseInt(closeDay) + 1;
+            closeDay = closeDay.toString();
+            console.log('stuff', closeYear, closeMonth, closeDay);
+            vm.DateClosed = new Date(closeYear + '-' + closeMonth + '-' + closeDay);
+            console.log('vm.DateClosed', vm.DateClosed);
+          }
+         
 
           // vm.cityName = vm.cities[vm.caseBeingEdited.data[0].city].city_name;
           console.log('vm.city', vm.city);
