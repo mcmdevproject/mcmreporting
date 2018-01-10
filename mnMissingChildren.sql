@@ -36,11 +36,11 @@ CREATE TABLE "counties" (
 "county_name" varchar (20)
 );
     
-INSERT INTO counties (county_name) VALUES ('Aitkin'), ('Anoka'), ('Becker'), ('Beltrami'), ('Benton'), ('Big Stone'), 
-('Blue Earth'), ('Brown'), ('Carlton'), ('Carver'), ('Cass'), ('Chippewa'), ('Chisago'), ('Clay'), ('Clearwater'), 
-('Cook'), ('Cottonwood'), ('Crow Wing'), ('Dakota'), ('Dodge'), ('Douglas'), ('Faribault'), ('Fillmore'), ('Freeborn'), 
-('Goodhue'), ('Grant'), ('Hennepin'), ('Houston'), ('Hubbard'), ('Isanti'), ('Itasca'), ('Jackson'), ('Kanabec'), 
-('Kandiyohi'), ('Kittson'), ('Koochiching'), ('Lac qui Parle'), ('Lake'), ('Lake of the Woods'), ('Le Sueur'), 
+INSERT INTO counties (county_name) VALUES ('Not in Minnesota'), ('Aitkin'), ('Anoka'), ('Becker'), ('Beltrami'), ('Benton'), 
+('Big Stone'), ('Blue Earth'), ('Brown'), ('Carlton'), ('Carver'), ('Cass'), ('Chippewa'), ('Chisago'), ('Clay'), 
+('Clearwater'), ('Cook'), ('Cottonwood'), ('Crow Wing'), ('Dakota'), ('Dodge'), ('Douglas'), ('Faribault'), ('Fillmore'), 
+('Freeborn'), ('Goodhue'), ('Grant'), ('Hennepin'), ('Houston'), ('Hubbard'), ('Isanti'), ('Itasca'), ('Jackson'), 
+('Kanabec'), ('Kandiyohi'), ('Kittson'), ('Koochiching'), ('Lac qui Parle'), ('Lake'), ('Lake of the Woods'), ('Le Sueur'), 
 ('Lincoln'), ('Lyon'), ('McLeod'), ('Mahnomen'), ('Marshall'), ('Martin'), ('Meeker'), ('Mille Lacs'), ('Morrison'), 
 ('Mower'), ('Murray'), ('Nicollet'), ('Nobles'), ('Norman'), ('Olmstead'), ('Otter Tail'), ('Pennington'), ('Pine'), 
 ('Pipestone'), ('Polk'), ('Pope'), ('Ramsey'), ('Red Lake'), ('Redwood'), ('Renville'), ('Rice'), ('Rock'), ('Roseau'), 
