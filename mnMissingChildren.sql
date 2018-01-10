@@ -16,7 +16,7 @@ CREATE TABLE "case_data" (
 "last_seen" date,
 "reported_missing" date,
 "people_served" integer,
-"city" int REFERENCES cities (id) ON DELETE CASCADE,
+"city" varchar(30),
 "county" int REFERENCES counties (id) ON DELETE CASCADE,
 "state" text,
 "school" int REFERENCES schools (id) ON DELETE CASCADE,
@@ -30,20 +30,22 @@ CREATE TABLE "case_data" (
 
 --field reference tables--
 
-CREATE TABLE "cities" (
-"id" serial primary key,
-"city_name" varchar (50)
-);
-
 CREATE TABLE "counties" (
 "id" serial primary key,
 "county_name" varchar (20)
 );
-    --sample data--
-    INSERT INTO counties (county_name) VALUES ('Sherburne'), ('Sibley'), ('Stearns'), 
-    ('Steele'), ('Stevens'), ('Swift'), ('Todd'), ('Traverse'), 
-    ('Wabasha'), ('Wadena'), ('Waseca'), ('Washington'), ('Watonwan'), 
-    ('Wilkin'), ('Winona'), ('Wright'), ('Yellow Medicine');
+    
+INSERT INTO counties (county_name) VALUES ('Aitkin'), ('Anoka'), ('Becker'), ('Beltrami'), ('Benton'), ('Big Stone'), 
+('Blue Earth'), ('Brown'), ('Carlton'), ('Carver'), ('Cass'), ('Chippewa'), ('Chisago'), ('Clay'), ('Clearwater'), 
+('Cook'), ('Cottonwood'), ('Crow Wing'), ('Dakota'), ('Dodge'), ('Douglas'), ('Faribault'), ('Fillmore'), ('Freeborn'), 
+('Goodhue'), ('Grant'), ('Hennepin'), ('Houston'), ('Hubbard'), ('Isanti'), ('Itasca'), ('Jackson'), ('Kanabec'), 
+('Kandiyohi'), ('Kittson'), ('Koochiching'), ('Lac qui Parle'), ('Lake'), ('Lake of the Woods'), ('Le Sueur'), 
+('Lincoln'), ('Lyon'), ('McLeod'), ('Mahnomen'), ('Marshall'), ('Martin'), ('Meeker'), ('Mille Lacs'), ('Morrison'), 
+('Mower'), ('Murray'), ('Nicollet'), ('Nobles'), ('Norman'), ('Olmstead'), ('Otter Tail'), ('Pennington'), ('Pine'), 
+('Pipestone'), ('Polk'), ('Pope'), ('Ramsey'), ('Red Lake'), ('Redwood'), ('Renville'), ('Rice'), ('Rock'), ('Roseau'), 
+('Saint Louis'), ('Scott'), ('Sherburne'), ('Sibley'), ('Stearns'), ('Steele'), ('Stevens'), ('Swift'), ('Todd'), 
+('Traverse'), ('Wabasha'), ('Wadena'), ('Waseca'), ('Washington'), ('Watonwan'), ('Wilkin'), ('Winona'), ('Wright'), 
+('Yellow Medicine');
 
 CREATE TABLE "law_enforcement" (
 "id" serial primary key,
