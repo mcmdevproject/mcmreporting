@@ -275,8 +275,6 @@ myApp.controller('EditController', function(UserService) {
 
           // vm.cityName = vm.cities[vm.caseBeingEdited.data[0].city].city_name;
           console.log('vm.city', vm.city);
-          vm.city = [vm.caseBeingEdited.data[0].city_name];
-          console.log('vm.city', vm.city);
 
           vm.county_name = [vm.caseBeingEdited.data[0].county_name];
           console.log('vm.county', vm.county_name);

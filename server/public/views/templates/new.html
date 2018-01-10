@@ -120,11 +120,7 @@
       </md-input-container>
 
       <md-input-container>
-        <label>City Missing From</label>
-        <md-select ng-model="nwc.CityMissingFromIn" style="width:200px;" ng-change="nwc.itemChange()" required>
-          <md-option value="" disabled md-selected>City Missing From</md-option>
-          <md-option ng-repeat="cityObj in nwc.cities" ng-value="cityObj.city_name"> {{cityObj.city_name}}</md-option>
-        </md-select>
+        <input ng-model="nwc.CityMissingFromIn" type="text" placeholder="City Missing From" required>
       </md-input-container>
 
       <md-input-container>

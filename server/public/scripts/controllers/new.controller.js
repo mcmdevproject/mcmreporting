@@ -293,12 +293,6 @@ myApp.controller('NewController', function (UserService) {
   vm.userService = UserService;
   vm.userObject = UserService.userObject;
 
-
-  UserService.getCities().then(function (response) {
-    console.log('cities', response.data);
-    return vm.cities = response.data;
-  });
-
   UserService.getCounties().then(function (response) {
     return vm.counties = response.data;
   });
