@@ -293,12 +293,6 @@ myApp.controller('NewController', function (UserService) {
   vm.userService = UserService;
   vm.userObject = UserService.userObject;
 
-
-  UserService.getCities().then(function (response) {
-    console.log('cities', response.data);
-    return vm.cities = response.data;
-  });
-
   UserService.getCounties().then(function (response) {
     return vm.counties = response.data;
   });
@@ -379,10 +373,10 @@ myApp.controller('NewController', function (UserService) {
         newIntake.case_vulnerabilities = vm.case_vulnerabilities.filter(function (vulnerability) {
           return vulnerability.value == true;
         });
-        if (newIntake.case_vulnerabilities.length === 0) {
-          case_vulnerabilities[21].value = true;
-          newIntake.case_vulnerabilities.push(case_vulnerabilities[21]);
-        }
+        // if (newIntake.case_vulnerabilities.length === 0) {
+        //   case_vulnerabilities[21].value = true;
+        //   newIntake.case_vulnerabilities.push(case_vulnerabilities[21]);
+        // }
       }).then(function () {
         newIntake.race_ethnicity = vm.race_ethnicity.filter(function (ethnicity) {
           return ethnicity.value == true;
@@ -414,8 +408,10 @@ myApp.controller('NewController', function (UserService) {
         }
         ]
         newIntake.case_lawenforcement_denial = vm.jurisdictions.filter(function (jurisdiction) {
+          console.log('jurisdiction', jurisdiction);
+          jurisdiction.denial = Boolean(jurisdiction.denial);
+          console.log('denial', typeof jurisdiction.denial);
           return jurisdiction.name !== undefined;
-
         })
       })
         .then(function () {

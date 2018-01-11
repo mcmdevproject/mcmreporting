@@ -3,7 +3,8 @@ CREATE TABLE "users" (
     "id" serial primary key,
     "username" varchar(80),
     "password" varchar (240),
-    "admin" boolean default FALSE
+    "admin" boolean default FALSE,
+    "approved" boolean default FALSE
 );
 
 --research data table --
@@ -16,7 +17,7 @@ CREATE TABLE "case_data" (
 "last_seen" date,
 "reported_missing" date,
 "people_served" integer,
-"city" int REFERENCES cities (id) ON DELETE CASCADE,
+"city" varchar(30),
 "county" int REFERENCES counties (id) ON DELETE CASCADE,
 "state" text,
 "school" int REFERENCES schools (id) ON DELETE CASCADE,
@@ -30,47 +31,67 @@ CREATE TABLE "case_data" (
 
 --field reference tables--
 
-CREATE TABLE "cities" (
-"id" serial primary key,
-"city_name" varchar (50)
-);
-
 CREATE TABLE "counties" (
 "id" serial primary key,
 "county_name" varchar (20)
 );
-    --sample data--
-    INSERT INTO counties (county_name) VALUES ('Sherburne'), ('Sibley'), ('Stearns'), 
-    ('Steele'), ('Stevens'), ('Swift'), ('Todd'), ('Traverse'), 
-    ('Wabasha'), ('Wadena'), ('Waseca'), ('Washington'), ('Watonwan'), 
-    ('Wilkin'), ('Winona'), ('Wright'), ('Yellow Medicine');
+    
+INSERT INTO counties (county_name) VALUES ('Not in Minnesota'), ('Aitkin'), ('Anoka'), ('Becker'), ('Beltrami'), ('Benton'), 
+('Big Stone'), ('Blue Earth'), ('Brown'), ('Carlton'), ('Carver'), ('Cass'), ('Chippewa'), ('Chisago'), ('Clay'), 
+('Clearwater'), ('Cook'), ('Cottonwood'), ('Crow Wing'), ('Dakota'), ('Dodge'), ('Douglas'), ('Faribault'), ('Fillmore'), 
+('Freeborn'), ('Goodhue'), ('Grant'), ('Hennepin'), ('Houston'), ('Hubbard'), ('Isanti'), ('Itasca'), ('Jackson'), 
+('Kanabec'), ('Kandiyohi'), ('Kittson'), ('Koochiching'), ('Lac qui Parle'), ('Lake'), ('Lake of the Woods'), ('Le Sueur'), 
+('Lincoln'), ('Lyon'), ('McLeod'), ('Mahnomen'), ('Marshall'), ('Martin'), ('Meeker'), ('Mille Lacs'), ('Morrison'), 
+('Mower'), ('Murray'), ('Nicollet'), ('Nobles'), ('Norman'), ('Olmstead'), ('Otter Tail'), ('Pennington'), ('Pine'), 
+('Pipestone'), ('Polk'), ('Pope'), ('Ramsey'), ('Red Lake'), ('Redwood'), ('Renville'), ('Rice'), ('Rock'), ('Roseau'), 
+('Saint Louis'), ('Scott'), ('Sherburne'), ('Sibley'), ('Stearns'), ('Steele'), ('Stevens'), ('Swift'), ('Todd'), 
+('Traverse'), ('Wabasha'), ('Wadena'), ('Waseca'), ('Washington'), ('Watonwan'), ('Wilkin'), ('Winona'), ('Wright'), 
+('Yellow Medicine');
 
 CREATE TABLE "law_enforcement" (
 "id" serial primary key,
 "agency" varchar (100)
 );
 
+-- Example Law Enforcement Agencies --
+INSERT INTO law_enforcement (agency) VALUES ('Minneapolis Police Department'), ('Hennepin County Sheriffs Office'), 
+('Saint Paul Police Department'), ('Ramsey County Sheriffs Office');
+
+-- SQL command to add new law enforcement agencies -- 
+INSERT INTO law_enforcement (agency) VALUES ('Agency goes here');
+
 CREATE TABLE "schools" (
 "id" serial primary key,
 "school_name" varchar (100)
 );
 
+-- Example School Districts -- 
+INSERT INTO schools (school_name) VALUES ('Minneapolis Public School District'), ('St. Paul Public School District'), 
+('West St. Paul-Mendota Hts.-Eagan')
+
+-- SQL command to add new school districts --
+INSERT INTO schools (school_name) VALUES ('District goes here');
 
 CREATE TABLE "race_ethnicity" (
 "id" serial primary key,
 "race_ethnicity" varchar (50)
 );
-    --sample data--
-    INSERT INTO race_ethnicity (race_ethnicity) VALUES 
-    ('African-American'), ('Asian/Pacific Islander'), 
-    ('Caucasian'), ('Latin'), ('Native American');
+    
+INSERT INTO race_ethnicity (race_ethnicity) VALUES 
+('African-American'), ('Asian/Pacific Islander'), 
+('Caucasian'), ('Latin'), ('Native American');
 
 CREATE TABLE "vulnerabilities" (
 "id" serial primary key,
 "vulnerability" varchar (100)
 );
 
-    INSERT INTO vulnerabilities (vulnerability) VALUES ('ADD/ADHD'), ('ASD'), ('Alcohol use/abuse'), ('Anxiety'), ('Bipolar Disorder'), ('Depression (Clinical)'), ('Depression (Situational)'), ('Drug use/abuse'), ('Economic exploitation (history'), ('Emotional abuse (history)'), ('Gang association'), ('ODD'), ('Labor Exploitation (history)'), ('Luring/grooming by adult'), ('Luring/grooming by child'), ('Missing from care'), ('Physical Abuse (history)'), ('Runaway (history)'), ('Sexual Abuse (history)'), ('Sexual exploitation (history)'), ('Sexual Minority');
+INSERT INTO vulnerabilities (vulnerability) VALUES ('ADD/ADHD'), ('ASD'), ('Alcohol use/abuse'), ('Anxiety'), 
+('Bipolar Disorder'), ('Depression (Clinical)'), ('Depression (Situational)'), ('Drug use/abuse'), 
+('Economic exploitation (history'), ('Emotional abuse (history)'), ('Gang association'), ('ODD'), 
+('Labor Exploitation (history)'), ('Luring/grooming by adult'), ('Luring/grooming by child'), ('Missing from care'), 
+('Physical Abuse (history)'), ('Runaway (history)'), ('Sexual Abuse (history)'), ('Sexual exploitation (history)'), 
+('Sexual Minority');
 
 
 --Join tables--

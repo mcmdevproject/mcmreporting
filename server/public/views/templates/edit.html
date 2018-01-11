@@ -164,6 +164,12 @@
       Sexual Minority (LGBTQ, etc.)
     </md-checkbox>
 
+    <md-checkbox ng-model="ec.NoneIn" aria-label="None" ng-click="ec.changeVul(ec.case_vulnerabilities[21])"
+      ng-checked="ec.case_vulnerabilities[21].value">
+      None
+    </md-checkbox>
+
+
   </div>
 
 
@@ -178,12 +184,7 @@
     </md-input-container>
 
     <md-input-container>
-      <label>City Missing From</label>
-          
-      <md-select name="City Missing From" id="city" ng-model="ec.CityMissingFormIn" ng-change="ec.itemChange()" ng-selected="true">
-        <md-option ng-repeat="city in ec.city" value="ec.city_id" selected>{{city}}</md-option>
-        <md-option ng-repeat="cityObj in ec.cities" ng-value="{{cityObj.id}}">{{cityObj.city_name}}</md-option>
-      </md-select>
+      <input id="city" ng-model="ec.city" ng-change="ec.itemChange()" type="text" placeholder="City Missing From" required>
     </md-input-container>
 
     <md-input-container style="margin-right: 10px;width: 20%;">

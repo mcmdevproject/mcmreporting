@@ -152,7 +152,7 @@ router.post('/newIntake', function (req, res) {      //  --1
         res.sendStatus(500);
       } 
       else { //--4     - main query -
-        var caseDataQuery = 'INSERT INTO case_data (mcm_number, intake_date, age, gender, last_seen, reported_missing, people_served, city, county, state, school, start_case_type, end_case_type, disposition, close_date, referral_type, case_status) VALUES ($1, $2, $3, $4, $5, $6, $7, (SELECT id FROM cities WHERE city_name = $8), (SELECT id FROM counties WHERE county_name = $9), $10, (SELECT id FROM schools WHERE school_name = $11), $12, $13, $14, $15, $16, $17) RETURNING id;' 
+        var caseDataQuery = 'INSERT INTO case_data (mcm_number, intake_date, age, gender, last_seen, reported_missing, people_served, city, county, state, school, start_case_type, end_case_type, disposition, close_date, referral_type, case_status) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, (SELECT id FROM counties WHERE county_name = $9), $10, (SELECT id FROM schools WHERE school_name = $11), $12, $13, $14, $15, $16, $17) RETURNING id;' 
         var caseDataValueArray = [newIntake.mcm_number, newIntake.intake_date, newIntake.age, newIntake.gender, newIntake.last_seen, newIntake.reported_missing, newIntake.people_served, newIntake.city_name, newIntake.county_name, newIntake.state, newIntake.school_name, newIntake.start_case_type, newIntake.end_case_type, newIntake.disposition, newIntake.close_date, newIntake.referral_type, newIntake.case_status]
         console.log('caseDataQuery, caseDataValue', caseDataQuery, caseDataValueArray)
         client.query(caseDataQuery, caseDataValueArray, function (queryErr, resultObj) {  // --5
@@ -223,6 +223,7 @@ router.post('/newIntake', function (req, res) {      //  --1
                         var createAgencyQuery = function() {
                           for (let l = 0; l < newIntake.case_lawenforcement_denial.length; l++) {
                             tempAgencyArray.push('('+resultObj.rows[0].id+ ', (Select id FROM law_enforcement WHERE agency = $'+agencyCount++ + '), $' +agencyCount++ +')')
+                            console.log('LE Name -->', newIntake.case_lawenforcement_denial[l].name, newIntake.case_lawenforcement_denial[l].denial);
                             agencyArray.push(newIntake.case_lawenforcement_denial[l].name, newIntake.case_lawenforcement_denial[l].denial);
                             }  //end for loop
                           } //end creqte Query function
@@ -272,7 +273,7 @@ router.get('/caseToEdit/:id', function (req, res) {
       } else {
         var valueArray = [mcmCase]
         console.log('valueArray', valueArray)
-        editQuery = 'SELECT * FROM case_data FULL JOIN case_lawenforcement_denial ON case_lawenforcement_denial.case_data_id = case_data.id FULL JOIN law_enforcement ON case_lawenforcement_denial.law_enforcement_id = law_enforcement.id FULL join case_race_ethnicity ON case_race_ethnicity.case_data_id = case_data.id FULL Join race_ethnicity On case_race_ethnicity.race_ethnicity_id = race_ethnicity.id FULL Join case_vulnerabilities On case_vulnerabilities.case_data_id = case_data.id FULL Join vulnerabilities On case_vulnerabilities.vulnerabilities_id = vulnerabilities.id FULL JOIN cities on case_data.city = cities.id FULL JOIN counties on case_data.county = counties.id Where mcm_number = $1;' 
+        editQuery = 'SELECT * FROM case_data FULL JOIN case_lawenforcement_denial ON case_lawenforcement_denial.case_data_id = case_data.id FULL JOIN law_enforcement ON case_lawenforcement_denial.law_enforcement_id = law_enforcement.id FULL join case_race_ethnicity ON case_race_ethnicity.case_data_id = case_data.id FULL Join race_ethnicity On case_race_ethnicity.race_ethnicity_id = race_ethnicity.id FULL Join case_vulnerabilities On case_vulnerabilities.case_data_id = case_data.id FULL Join vulnerabilities On case_vulnerabilities.vulnerabilities_id = vulnerabilities.id FULL JOIN counties on case_data.county = counties.id Where mcm_number = $1;' 
         client.query(editQuery, valueArray, function (queryErr, resultObj) {
           done();
           if (queryErr) {
@@ -305,7 +306,7 @@ router.put('/editIntake', function (req, res) { //1
         res.sendStatus(500);
       } 
       else { //   - main query -  4
-        var caseDataQuery = 'UPDATE case_data SET age = $1, gender = $2, school = (SELECT id FROM schools WHERE school_name = $3), start_case_type = $4, end_case_type = $5, disposition = $6, referral_type = $7, case_status = $8, city = (SELECT id FROM cities WHERE city_name = $9), close_date = $10, county = (SELECT id FROM counties WHERE county_name = $11), people_served = $12, last_seen = $13, reported_missing = $14, state = $15 Where mcm_number = $16;' 
+        var caseDataQuery = 'UPDATE case_data SET age = $1, gender = $2, school = (SELECT id FROM schools WHERE school_name = $3), start_case_type = $4, end_case_type = $5, disposition = $6, referral_type = $7, case_status = $8, city = $9, close_date = $10, county = (SELECT id FROM counties WHERE county_name = $11), people_served = $12, last_seen = $13, reported_missing = $14, state = $15 Where mcm_number = $16;' 
         var caseDataValueArray = [edit.age, edit.gender, edit.school_name, edit.start_case_type, edit.end_case_type, edit.disposition, edit.referral_type, edit.case_status, edit.city, edit.close_date, edit.county, edit.mcm_number, edit.people_served, edit.last_seen, edit.reported_missing, edit.state]
         console.log('Update case_data Query', caseDataQuery)
         client.query(caseDataQuery, caseDataValueArray, function (queryErr, resultObj) { 
