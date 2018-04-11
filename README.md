@@ -153,7 +153,7 @@ CREATE TABLE "case_vulnerabilities" (
 
 ## Screen Shots
 
-![Image of Login Page](https://github.com/mcmdevproject/mcmreporting/blob/master/server/public/images/ScreenShotLogin.png)
+![Image of Login Page](https://github.com/AlexJHand/mcmreporting/blob/master/server/public/images/ScreenShotLogin.png)
 
 ![Image of Landing Page](https://github.com/mcmdevproject/mcmreporting/blob/master/server/public/images/ScreenShotLanding.png)
 
